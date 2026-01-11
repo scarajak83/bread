@@ -425,6 +425,32 @@
                 console.log('Message from SkyTab menu:', event.data);
             }
         });
+
+        // PDF Viewer functionality
+        function displayPDF(pdfUrl) {
+            const pdfViewer = document.getElementById('pdfViewer');
+            const container = document.querySelector('.pdf-viewer-container');
+
+            if (pdfViewer && pdfUrl) {
+                // Use embed tag for better PDF display
+                pdfViewer.src = pdfUrl + '#toolbar=0';
+                pdfViewer.style.display = 'block';
+
+                // Hide placeholder message if it exists
+                const placeholder = container.querySelector('div');
+                if (placeholder) {
+                    placeholder.style.display = 'none';
+                }
+            }
+        }
+
+        // Check if PDF URL is provided and display it
+        // Replace 'YOUR_PDF_URL_HERE' with actual PDF URL when ready
+        document.addEventListener('DOMContentLoaded', function() {
+            // This can be populated dynamically when you add your PDF
+            // For now, it shows the placeholder
+            // To use: displayPDF('path/to/your/menu.pdf');
+        });
     </script>
 </body>
 </html>

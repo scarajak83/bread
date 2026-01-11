@@ -290,20 +290,18 @@
             <div class="paper-menu-section">
                 <h3>📄 Our Full Menu</h3>
                 <p>View our complete menu below</p>
-                <div class="pdf-viewer-container" style="background: white; border-radius: 12px; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1); overflow: hidden; margin-top: 2rem; min-height: 600px;">
+                <div class="pdf-viewer-container" style="background: white; border-radius: 12px; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1); overflow: auto; margin-top: 2rem; height: 800px; display: flex; align-items: center; justify-content: center;">
+                    <div style="text-align: center; padding: 3rem; color: #6B6B6B;">
+                        <p style="font-size: 1.1rem; margin-bottom: 1rem;">📄 Menu PDF coming soon</p>
+                        <p style="font-size: 0.95rem; max-width: 400px;">Upload your menu PDF and it will display here for customers to view and scroll through</p>
+                    </div>
                     <iframe
                         id="pdfViewer"
-                        style="width: 100%; height: 800px; border: none;"
+                        style="width: 100%; height: 100%; border: none; display: none;"
                         src=""
                         title="Bread N' Brew Menu PDF">
                     </iframe>
                 </div>
-                <div style="margin-top: 1rem; text-align: center;">
-                    <a href="#" class="order-btn" style="background: #8B4513; display: inline-block;" id="pdfDownloadLink">
-                        📥 Download PDF Menu
-                    </a>
-                </div>
-                <p style="margin-top: 1rem; font-size: 0.9rem; color: #999; text-align: center;">Menu PDF coming soon - upload in progress</p>
             </div>
 
             <div class="location-info">

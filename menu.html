@@ -224,6 +224,95 @@
                 min-height: 700px;
             }
         }
+
+        /* Menu Gallery Styles */
+        .paper-menu-section {
+            margin-top: 4rem;
+            text-align: center;
+        }
+
+        .paper-menu-section h3 {
+            color: #2A2A2A;
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .paper-menu-section p {
+            color: #6B6B6B;
+            font-size: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .menu-gallery-container {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            overflow-y: auto;
+            max-height: 1000px;
+            padding: 1rem;
+            margin-top: 2rem;
+        }
+
+        .menu-page {
+            display: flex;
+            justify-content: center;
+            padding: 1rem 0;
+        }
+
+        .menu-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            display: block;
+        }
+
+        .menu-page:not(:last-child) {
+            border-bottom: 2px solid #F0F0F0;
+            padding-bottom: 1.5rem;
+        }
+
+        /* Responsive Menu Gallery */
+        @media (max-width: 768px) {
+            .menu-gallery-container {
+                max-height: 800px;
+                padding: 0.75rem;
+            }
+
+            .paper-menu-section h3 {
+                font-size: 1.5rem;
+            }
+
+            .paper-menu-section p {
+                font-size: 0.95rem;
+            }
+
+            .menu-page {
+                padding: 0.75rem 0;
+            }
+
+            .menu-page:not(:last-child) {
+                padding-bottom: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .menu-gallery-container {
+                max-height: 600px;
+                padding: 0.5rem;
+            }
+
+            .paper-menu-section h3 {
+                font-size: 1.3rem;
+            }
+
+            .menu-page {
+                padding: 0.5rem 0;
+            }
+
+            .menu-page:not(:last-child) {
+                padding-bottom: 0.75rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -290,17 +379,16 @@
             <div class="paper-menu-section">
                 <h3>📄 Our Full Menu</h3>
                 <p>View our complete menu below</p>
-                <div class="pdf-viewer-container" style="background: white; border-radius: 12px; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1); overflow: auto; margin-top: 2rem; height: 800px; display: flex; align-items: center; justify-content: center;">
-                    <div style="text-align: center; padding: 3rem; color: #6B6B6B;">
-                        <p style="font-size: 1.1rem; margin-bottom: 1rem;">📄 Menu PDF coming soon</p>
-                        <p style="font-size: 0.95rem; max-width: 400px;">Upload your menu PDF and it will display here for customers to view and scroll through</p>
+                <div class="menu-gallery-container">
+                    <div class="menu-page">
+                        <img src="https://cdn.builder.io/api/v1/image/assets%2F18ad66c16171422ab78a8acbaf631f50%2F542d24bc9dda45daa57398f8e9a031fb?format=webp&width=800&height=1200" alt="Menu Page 1 - Beverages and Refreshments" class="menu-image">
                     </div>
-                    <iframe
-                        id="pdfViewer"
-                        style="width: 100%; height: 100%; border: none; display: none;"
-                        src=""
-                        title="Bread N' Brew Menu PDF">
-                    </iframe>
+                    <div class="menu-page">
+                        <img src="https://cdn.builder.io/api/v1/image/assets%2F18ad66c16171422ab78a8acbaf631f50%2F3e88af1ab887493f9d08cf023c350eb4?format=webp&width=800&height=1200" alt="Menu Page 2 - Breakfast and Specialties" class="menu-image">
+                    </div>
+                    <div class="menu-page">
+                        <img src="https://cdn.builder.io/api/v1/image/assets%2F18ad66c16171422ab78a8acbaf631f50%2Fcdf2e6c79b9143f98a3302c3bb33b147?format=webp&width=800&height=1200" alt="Menu Page 3 - Lunch Items and Salads" class="menu-image">
+                    </div>
                 </div>
             </div>
 
@@ -426,31 +514,6 @@
             }
         });
 
-        // PDF Viewer functionality
-        function displayPDF(pdfUrl) {
-            const pdfViewer = document.getElementById('pdfViewer');
-            const container = document.querySelector('.pdf-viewer-container');
-
-            if (pdfViewer && pdfUrl) {
-                // Use embed tag for better PDF display
-                pdfViewer.src = pdfUrl + '#toolbar=0';
-                pdfViewer.style.display = 'block';
-
-                // Hide placeholder message if it exists
-                const placeholder = container.querySelector('div');
-                if (placeholder) {
-                    placeholder.style.display = 'none';
-                }
-            }
-        }
-
-        // Check if PDF URL is provided and display it
-        // Replace 'YOUR_PDF_URL_HERE' with actual PDF URL when ready
-        document.addEventListener('DOMContentLoaded', function() {
-            // This can be populated dynamically when you add your PDF
-            // For now, it shows the placeholder
-            // To use: displayPDF('path/to/your/menu.pdf');
-        });
     </script>
 </body>
 </html>

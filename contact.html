@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact - Bread N' Br☕︎w</title>
+    <title>Contact - Bread N' Brew</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 </head>
@@ -16,15 +16,13 @@
         <div class="nav-container">
             <div class="nav-logo">
                 <h1>Bread N' Br☕︎w</h1>
-                <span>COFFEE • FOOD SERVED • PATISSERIES</span>
+                <span class="nav-tagline">COFFEE • FRESH MEALS • PATISSERIES</span>
             </div>
             <ul class="nav-menu">
-                <li><a href="/">Home</a></li>
+                <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="menu.html">Menu</a></li>
-                <li><a href="catering.html">Catering</a></li>
                 <li><a href="contact.html" class="nav-active">Contact</a></li>
-                <li class="nav-order"><a href="https://online.skytab.com/s/breadnbrew" target="_blank" class="btn btn-primary nav-order-btn">Order Online</a></li>
             </ul>
             <div class="nav-toggle">
                 <span></span>
@@ -34,112 +32,85 @@
         </div>
     </nav>
 
-    <!-- Contact Header -->
-    <section class="contact-header">
-        <div class="header-background">
-            <img src="https://images.unsplash.com/photo-1559925393-8be0ec4767c8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2071&q=80" alt="Bread N' Br☕︎w storefront">
-        </div>
-        <div class="container">
-            <div class="header-content">
-                <h1>Visit Us</h1>
-                <p>We'd love to welcome you to our café in Berkeley Heights</p>
-            </div>
+    <!-- Page Hero -->
+    <section class="page-hero">
+        <div class="page-hero-content">
+            <h1>Get In Touch</h1>
+            <p>We'd love to hear from you</p>
         </div>
     </section>
 
     <!-- Contact Content -->
-    <section class="contact-content">
+    <section class="contact-section">
         <div class="container">
             <div class="contact-grid">
                 <!-- Contact Form -->
-                <div class="contact-form-section">
-                    <h2>Get in Touch</h2>
-                    <p>Have questions about our menu, catering services, or special orders? Send us a message and we'll get back to you soon.</p>
-                    
+                <div class="contact-form-wrapper">
+                    <h2>Send Us a Message</h2>
                     <form class="contact-form" id="contactForm">
                         <div class="form-group">
-                            <label for="contactName">Name *</label>
-                            <input type="text" id="contactName" name="name" required>
+                            <label for="name">Name *</label>
+                            <input type="text" id="name" name="name" required>
                         </div>
-                        
+
                         <div class="form-group">
-                            <label for="contactEmail">Email *</label>
-                            <input type="email" id="contactEmail" name="email" required>
+                            <label for="email">Email *</label>
+                            <input type="email" id="email" name="email" required>
                         </div>
-                        
+
                         <div class="form-group">
-                            <label for="contactPhone">Phone</label>
-                            <input type="tel" id="contactPhone" name="phone">
+                            <label for="phone">Phone</label>
+                            <input type="tel" id="phone" name="phone">
                         </div>
-                        
+
                         <div class="form-group">
-                            <label for="subject">Subject</label>
-                            <select id="subject" name="subject">
+                            <label for="subject">Subject *</label>
+                            <select id="subject" name="subject" required>
                                 <option value="">Select a topic</option>
                                 <option value="general">General Inquiry</option>
-                                <option value="catering">Catering Services</option>
-                                <option value="special-orders">Special Orders</option>
+                                <option value="order">Order Question</option>
+                                <option value="catering">Catering Request</option>
                                 <option value="feedback">Feedback</option>
                                 <option value="employment">Employment</option>
-                                <option value="media">Media Inquiry</option>
+                                <option value="other">Other</option>
                             </select>
                         </div>
-                        
+
                         <div class="form-group">
                             <label for="message">Message *</label>
-                            <textarea id="message" name="message" rows="6" placeholder="Tell us how we can help you..." required></textarea>
+                            <textarea id="message" name="message" rows="6" placeholder="Tell us how we can help..." required></textarea>
                         </div>
-                        
-                        <button type="submit" class="btn btn-primary">Send Message</button>
+
+                        <button type="submit" class="btn btn-primary btn-large">Send Message</button>
                     </form>
                 </div>
 
-                <!-- Contact Info Sidebar -->
-                <div class="contact-info">
-                    <div class="info-section">
-                        <h3>Location</h3>
-                        <div class="info-item">
-                            <h4>Address</h4>
-                            <p><a href="https://maps.google.com/?q=Bread+N'+Brew,+Springfield+Avenue,+Berkeley+Heights,+NJ" target="_blank" class="address-link">512 Springfield Ave<br>
-                            Berkeley Heights, NJ 07922</a></p>
-                            <a href="https://maps.google.com/?q=Bread+N'+Brew,+Springfield+Avenue,+Berkeley+Heights,+NJ" target="_blank" class="directions-btn">Get Directions via Google Maps</a>
-                        </div>
-
-                        <div class="info-item">
-                            <h4>Phone</h4>
-                            <p><a href="tel:+19089330123">(908) 933-0123</a></p>
-                        </div>
-
-                        <div class="info-item">
-                            <h4>Email</h4>
-                            <p><a href="mailto:breadnbrew512@gmail.com">breadnbrew512@gmail.com</a></p>
-                        </div>
+                <!-- Contact Info -->
+                <div class="contact-info-wrapper">
+                    <div class="contact-info-card">
+                        <h3>📍 Location</h3>
+                        <p>512 Springfield Ave<br>
+                        Berkeley Heights, NJ 07922</p>
+                        <a href="https://maps.google.com/?q=512+Springfield+Ave,+Berkeley+Heights,+NJ+07922" target="_blank" class="btn btn-secondary btn-small">Get Directions</a>
                     </div>
 
-                    <div class="info-section">
-                        <h3>Hours</h3>
-                        <div class="hours-list">
-                            <div class="hours-item">
-                                <span class="day">Monday - Saturday</span>
-                                <span class="time">8:00 AM - 5:00 PM</span>
-                            </div>
-                            <div class="hours-item">
-                                <span class="day">Sunday</span>
-                                <span class="time">8:00 AM - 4:00 PM</span>
-                            </div>
-                        </div>
+                    <div class="contact-info-card">
+                        <h3>☎️ Phone</h3>
+                        <p><a href="tel:+19089330123">(908) 933-0123</a></p>
+                        <p style="font-size: 0.9rem; color: #999; margin-top: 0.5rem;">Call us during business hours</p>
                     </div>
 
-                    <div class="info-section">
-                        <h3>Parking</h3>
-                        <p>On-site parking is available with 26 spaces, exclusively for Bread N' Brew customers.</p>
+                    <div class="contact-info-card">
+                        <h3>✉️ Email</h3>
+                        <p><a href="mailto:breadnbrew512@gmail.com">breadnbrew512@gmail.com</a></p>
+                        <p style="font-size: 0.9rem; color: #999; margin-top: 0.5rem;">Response within 24 hours</p>
                     </div>
 
-                    <div class="info-section">
-                        <h3>Public Transit</h3>
-                        <p>NJ Transit: Berkeley Heights Station<br>
-                        Bus: NJ Transit Bus routes 59, 113<br>
-                        Just a one-minute walk from the train station—yes, really only one minute!</p>
+                    <div class="contact-info-card">
+                        <h3>🕐 Hours</h3>
+                        <p><strong>Mon - Fri:</strong><br>8:00 AM - 5:00 PM<br><br>
+                        <strong>Saturday:</strong><br>8:00 AM - 5:00 PM<br><br>
+                        <strong>Sunday:</strong><br>8:00 AM - 4:00 PM</p>
                     </div>
                 </div>
             </div>
@@ -149,88 +120,45 @@
     <!-- Map Section -->
     <section class="map-section">
         <div class="container">
-            <h2>Find Us</h2>
+            <h2 class="section-title">Find Us On The Map</h2>
         </div>
         <div class="map-container">
-            <div class="map-placeholder">
-                <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3028.8!2d-74.4285!3d40.6790!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c3ab57b6c84d19%3A0x4b7d1c9c6b0b9b9b!2s512%20Springfield%20Ave%2C%20Berkeley%20Heights%2C%20NJ%2007922!5e0!3m2!1sen!2sus!4v1644845376789!5m2!1sen!2sus"
-                    width="100%"
-                    height="400"
-                    style="border:0; filter: sepia(20%) saturate(80%) hue-rotate(15deg) brightness(95%);"
-                    allowfullscreen=""
-                    loading="lazy">
-                </iframe>
-            </div>
-        </div>
-    </section>
-
-    <!-- Special Orders -->
-    <section class="special-orders">
-        <div class="container">
-            <div class="orders-content">
-                <h2>Special Orders</h2>
-                <p>Planning something special? We create custom cakes, dessert platters, and specialty items for your unique occasions.</p>
-                
-                <div class="orders-grid">
-                    <div class="order-item">
-                        <h3>Custom Cakes</h3>
-                        <p>Birthday cakes, wedding cakes, and celebration desserts made to your specifications.</p>
-                        <span class="order-notice">48-hour advance notice required</span>
-                    </div>
-                    
-                    <div class="order-item">
-                        <h3>Corporate Orders</h3>
-                        <p>Regular delivery services for offices, weekly pastry subscriptions, and bulk orders.</p>
-                        <span class="order-notice">24-hour advance notice required</span>
-                    </div>
-                    
-                    <div class="order-item">
-                        <h3>Seasonal Specialties</h3>
-                        <p>Holiday-themed pastries, seasonal tarts, and limited-time offerings for special occasions.</p>
-                        <span class="order-notice">Advance ordering recommended</span>
-                    </div>
-                </div>
-                
-                <div class="orders-cta">
-                    <p>For special orders, please call us at <a href="tel:+19089330123">(908) 933-0123</a> or use the contact form above.</p>
-                </div>
-            </div>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3028.0696!2d-74.4285!3d40.6790!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c3ab57b6c84d19%3A0x4b7d1c9c6b0b9b9b!2s512%20Springfield%20Ave%2C%20Berkeley%20Heights%2C%20NJ%2007922!5e0!3m2!1sen!2sus!4v1644845376789" width="100%" height="400" style="border:0; border-radius: 12px;" allowfullscreen="" loading="lazy"></iframe>
         </div>
     </section>
 
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <div class="footer-content">
+            <div class="footer-grid">
                 <div class="footer-section">
-                    <h3>Bread N' Br☕︎w</h3>
-                    <p>Where every bite and sip tells a story of craft and community.</p>
+                    <h3>Bread N' Brew</h3>
+                    <p>Where every bite and sip celebrates the art of craft and community.</p>
                 </div>
                 <div class="footer-section">
                     <h4>Quick Links</h4>
                     <ul>
-                        <li><a href="/about">About Us</a></li>
-                        <li><a href="/menu">Menu</a></li>
-                        <li><a href="/catering">Catering</a></li>
-                        <li><a href="/contact">Contact</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="menu.html">Menu</a></li>
+                        <li><a href="contact.html">Contact</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
-                    <h4>Visit Us</h4>
-                    <p><a href="https://maps.google.com/?q=Bread+N'+Brew,+Springfield+Avenue,+Berkeley+Heights,+NJ" target="_blank" class="address-link">512 Springfield Ave<br>
-                    Berkeley Heights, NJ 07922</a><br>
-                    <a href="tel:+19089330123">(908) 933-0123</a></p>
-                    <a href="https://maps.google.com/?q=Bread+N'+Brew,+Springfield+Avenue,+Berkeley+Heights,+NJ" target="_blank" class="directions-link">Get Directions via Google Maps</a>
+                    <h4>Hours</h4>
+                    <p>Monday - Friday: 8:00 AM - 5:00 PM<br>
+                    Saturday: 8:00 AM - 5:00 PM<br>
+                    Sunday: 8:00 AM - 4:00 PM</p>
                 </div>
                 <div class="footer-section">
-                    <h4>Hours</h4>
-                    <p>Mon-Sat: 8:00 AM - 5:00 PM<br>
-                    Sun: 8:00 AM - 4:00 PM</p>
+                    <h4>Contact</h4>
+                    <p>512 Springfield Ave<br>
+                    Berkeley Heights, NJ 07922<br>
+                    <a href="tel:+19089330123">(908) 933-0123</a><br>
+                    <a href="mailto:breadnbrew512@gmail.com">breadnbrew512@gmail.com</a></p>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 Bread N' Br☕︎w. All rights reserved.</p>
+                <p>&copy; 2025 Bread N' Brew. All rights reserved.</p>
             </div>
         </div>
     </footer>

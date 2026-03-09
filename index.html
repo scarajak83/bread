@@ -3,12 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bread N' Br☕︎w - Coffee, Artisan Bread, Patisseries</title>
+    <title>Bread N' Brew - Artisan Coffee, Fresh Pastries & Meals</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
-    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 </head>
 <body>
     <!-- Navigation -->
@@ -16,15 +15,13 @@
         <div class="nav-container">
             <div class="nav-logo">
                 <h1>Bread N' Br☕︎w</h1>
-                <span>COFFEE • FOOD SERVED • PATISSERIES</span>
+                <span class="nav-tagline">COFFEE • FRESH MEALS • PATISSERIES</span>
             </div>
             <ul class="nav-menu">
-                <li><a href="/" class="nav-active">Home</a></li>
+                <li><a href="index.html" class="nav-active">Home</a></li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="menu.html">Menu</a></li>
-                <li><a href="catering.html">Catering</a></li>
                 <li><a href="contact.html">Contact</a></li>
-                <li class="nav-order"><a href="https://online.skytab.com/s/breadnbrew" target="_blank" class="btn btn-primary nav-order-btn">Order Online</a></li>
             </ul>
             <div class="nav-toggle">
                 <span></span>
@@ -36,98 +33,84 @@
 
     <!-- Hero Section -->
     <section class="hero">
-        <div class="hero-background">
-            <img src="https://images.unsplash.com/photo-1586985289688-ca3cf47d3e6e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="French pastries and coffee" class="hero-image">
-        </div>
         <div class="hero-content">
-            <h1 class="hero-title">Handcrafted. Passionate. Local.</h1>
-            <p class="hero-subtitle">Where community meets craft in every delicious moment</p>
+            <h2 class="hero-title">Handcrafted. Passionate. Local.</h2>
             <div class="hero-buttons">
                 <a href="menu.html" class="btn btn-primary">Explore Menu</a>
-                <a href="https://online.skytab.com/s/breadnbrew" target="_blank" class="btn btn-secondary">Order Online Now</a>
-                <a href="https://maps.google.com/?q=Bread+N'+Brew,+Springfield+Avenue,+Berkeley+Heights,+NJ" target="_blank" class="btn btn-outline hero-directions">Get Directions</a>
+                <a href="https://online.skytab.com/s/breadnbrew" target="_blank" class="btn btn-secondary">Order Online</a>
+                <a href="https://maps.google.com/?q=512+Springfield+Ave,+Berkeley+Heights,+NJ+07922" target="_blank" class="btn btn-tertiary">Get Directions</a>
             </div>
+        </div>
+        <div class="hero-image">
+            <img src="https://images.pexels.com/photos/36475846/pexels-photo-36475846.jpeg" alt="Bread N' Brew Cafe Interior" class="hero-img">
         </div>
     </section>
 
-    <!-- Highlights Grid -->
-    <section class="highlights">
+    <!-- What We Offer Section -->
+    <section class="offerings">
         <div class="container">
-            <h2 class="section-title">Our Specialties</h2>
-            <div class="highlights-grid">
-                <div class="highlight-card">
-                    <div class="card-background">
-                        <img src="images/pastry.jpg" alt="French pastries">
+            <h2 class="section-title">Discover Our Specialties</h2>
+            <p class="section-subtitle">We serve breakfast and lunch all day long</p>
+            
+            <div class="offerings-grid">
+                <div class="offering-card">
+                    <div class="offering-image">
+                        <img src="https://images.pexels.com/photos/2097522/pexels-photo-2097522.jpeg" alt="Fresh Pastries">
                     </div>
-                    <div class="card-content">
-                        <h3>Fresh Pastries</h3>
-                    <p>Handcrafted daily with love and traditional techniques</p>
-                    </div>
+                    <h3>Fresh Pastries</h3>
+                    <p>Muffins, scones, apple turnovers, crumb cakes & more</p>
                 </div>
-                <div class="highlight-card">
-                    <div class="card-background">
-                        <img src="images/coffee.jpeg" alt="Specialty coffee">
-                    </div>
-                    <div class="card-content">
-                        <h3>Specialty Coffee</h3>
-                        <p>Single-origin beans expertly roasted and brewed</p>
-                    </div>
-                </div>
-                <div class="highlight-card">
-                    <div class="card-background">
-                        <img src="images/ice cream.jpg" alt="Artisan ice cream">
-                    </div>
-                    <div class="card-content">
-                        <h3>Artisan Ice Cream</h3>
-                        <p>Savor our creamy, handcrafted ice creams in a wide array of flavors</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- About Snippet -->
-    <section class="about-snippet">
-        <div class="container">
-            <div class="about-content">
-                <div class="about-text">
-                    <h2>Our Story</h2>
-                    <p>At Bread N' Br☕︎w, we celebrate the art of baking and brewing in the heart of Berkeley Heights. Every croissant, pastry, and cup of coffee is crafted with passion and the finest ingredients sourced from trusted local and artisan producers.</p>
-                    <a href="about.html" class="btn btn-outline">Discover Our Story</a>
+                <div class="offering-card">
+                    <div class="offering-image">
+                        <img src="https://images.pexels.com/photos/31767946/pexels-photo-31767946.jpeg" alt="Premium Coffee">
+                    </div>
+                    <h3>Premium Coffee</h3>
+                    <p>Artisan-roasted coffee beans prepared with passion</p>
                 </div>
-                <div class="about-image">
-                    <img src="images/displaycase.png" alt="Baker working">
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- Catering Snippet -->
-    <section class="catering-snippet">
-        <div class="container">
-            <div class="catering-content">
-                <div class="catering-image">
-                    <img src="images/catering.jpg" alt="Catering spread">
+                <div class="offering-card">
+                    <div class="offering-image">
+                        <img src="https://images.pexels.com/photos/33166521/pexels-photo-33166521.jpeg" alt="Beverages">
+                    </div>
+                    <h3>Specialty Beverages</h3>
+                    <p>Ice cream, smoothies, bubble tea & more</p>
                 </div>
-                <div class="catering-text">
-                    <h2>Catering</h2>
-                    <p>Elevate your special occasions with our exquisite catering services. From intimate morning coffee service to elaborate dessert platters, we bring the artisan quality of Bread N' Br☕︎w to your events.</p>
-                    <a href="catering.html" class="btn btn-outline">Explore Catering</a>
+
+                <div class="offering-card">
+                    <div class="offering-image">
+                        <img src="https://images.pexels.com/photos/4491396/pexels-photo-4491396.jpeg" alt="Fresh Meals">
+                    </div>
+                    <h3>Freshly Made Meals</h3>
+                    <p>Breakfast & lunch items crafted daily</p>
+                </div>
+
+                <div class="offering-card">
+                    <div class="offering-image">
+                        <img src="https://images.pexels.com/photos/2097522/pexels-photo-2097522.jpeg" alt="Tarts & Cakes">
+                    </div>
+                    <h3>Tarts & Cakes</h3>
+                    <p>Elegant desserts for every occasion</p>
+                </div>
+
+                <div class="offering-card">
+                    <div class="offering-image">
+                        <img src="https://images.pexels.com/photos/36475846/pexels-photo-36475846.jpeg" alt="Artisan Quality">
+                    </div>
+                    <h3>Artisan Quality</h3>
+                    <p>Everything made with the finest ingredients</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Newsletter -->
-    <section class="newsletter">
+    <!-- Call to Action Section -->
+    <section class="cta-section">
         <div class="container">
-            <div class="newsletter-content">
-                <h2>Stay in Touch</h2>
-                <p>Be the first to know about our seasonal offerings and exclusive events</p>
-                <form class="newsletter-form">
-                    <input type="email" placeholder="Your email address" required>
-                    <button type="submit" class="btn btn-primary">Subscribe</button>
-                </form>
+            <div class="cta-content">
+                <h2>Ready to Experience the Flavor?</h2>
+                <p>Visit us today for fresh coffee, pastries, and meals made with love</p>
+                <a href="https://maps.google.com/?q=512+Springfield+Ave,+Berkeley+Heights,+NJ+07922" target="_blank" class="btn btn-primary btn-large">Visit Us</a>
             </div>
         </div>
     </section>
@@ -135,35 +118,35 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <div class="footer-content">
+            <div class="footer-grid">
                 <div class="footer-section">
-                    <h3>Bread N' Br☕︎w</h3>
-                    <p>Where every bite and sip tells a story of craft and community.</p>
+                    <h3>Bread N' Brew</h3>
+                    <p>Where every bite and sip celebrates the art of craft and community.</p>
                 </div>
                 <div class="footer-section">
                     <h4>Quick Links</h4>
                     <ul>
                         <li><a href="about.html">About Us</a></li>
                         <li><a href="menu.html">Menu</a></li>
-                        <li><a href="catering.html">Catering</a></li>
                         <li><a href="contact.html">Contact</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
-                    <h4>Visit Us</h4>
-                    <p><a href="https://maps.google.com/?q=Bread+N'+Brew,+Springfield+Avenue,+Berkeley+Heights,+NJ" target="_blank" class="address-link">512 Springfield Ave<br>
-                    Berkeley Heights, NJ 07922</a><br>
-                    <a href="tel:+19089330123">(908) 933-0123</a></p>
-                    <a href="https://maps.google.com/?q=Bread+N'+Brew,+Springfield+Avenue,+Berkeley+Heights,+NJ" target="_blank" class="directions-link">Get Directions via Google Maps</a>
+                    <h4>Hours</h4>
+                    <p>Monday - Friday: 8:00 AM - 5:00 PM<br>
+                    Saturday: 8:00 AM - 5:00 PM<br>
+                    Sunday: 8:00 AM - 4:00 PM</p>
                 </div>
                 <div class="footer-section">
-                    <h4>Hours</h4>
-                    <p>Mon-Sat: 8:00 AM - 5:00 PM<br>
-                    Sun: 8:00 AM - 4:00 PM</p>
+                    <h4>Contact</h4>
+                    <p>512 Springfield Ave<br>
+                    Berkeley Heights, NJ 07922<br>
+                    <a href="tel:+19089330123">(908) 933-0123</a><br>
+                    <a href="mailto:breadnbrew512@gmail.com">breadnbrew512@gmail.com</a></p>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 Bread N' Br☕︎w. All rights reserved.</p>
+                <p>&copy; 2025 Bread N' Brew. All rights reserved.</p>
             </div>
         </div>
     </footer>

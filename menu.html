@@ -3,317 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Menu - Bread N' Br☕︎w</title>
+    <title>Menu - Bread N' Brew</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
-    <style>
-        /* Menu-specific styles */
-        .menu-section {
-            min-height: 100vh;
-            padding: 100px 0 40px;
-            background: #FAF9F6;
-        }
-
-        .menu-header {
-            text-align: center;
-            margin-bottom: 2rem;
-            padding: 0 2rem;
-        }
-
-        .menu-header h1 {
-            color: #2A2A2A;
-            margin-bottom: 1rem;
-        }
-
-        .menu-header p {
-            font-size: 1.1rem;
-            color: #6B6B6B;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .menu-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 1rem;
-            position: relative;
-        }
-
-        .menu-iframe-wrapper {
-            background: white;
-            border-radius: 12px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-            position: relative;
-            width: 100%;
-            height: 80vh;
-            min-height: 600px;
-        }
-
-        .menu-iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-            border-radius: 12px;
-        }
-
-        .loading-indicator {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            text-align: center;
-            color: #6B6B6B;
-            z-index: 1;
-        }
-
-        .loading-spinner {
-            width: 50px;
-            height: 50px;
-            border: 3px solid #f3f3f3;
-            border-top: 3px solid #E91E63;
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-            margin: 0 auto 1rem;
-        }
-
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        .menu-fallback {
-            display: none;
-            text-align: center;
-            padding: 3rem 2rem;
-            background: white;
-            border-radius: 12px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-            margin-top: 2rem;
-        }
-
-        .menu-fallback h3 {
-            color: #2A2A2A;
-            margin-bottom: 1rem;
-        }
-
-        .menu-fallback p {
-            color: #6B6B6B;
-            margin-bottom: 2rem;
-        }
-
-        .order-buttons {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-            align-items: center;
-            margin-top: 2rem;
-        }
-
-        .order-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 1rem 2rem;
-            background: #E91E63;
-            color: white;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            min-height: 44px;
-        }
-
-        .order-btn:hover {
-            background: #C2185B;
-            transform: translateY(-2px);
-            color: white;
-        }
-
-        .location-info {
-            margin-top: 3rem;
-            padding: 2rem;
-            background: white;
-            border-radius: 12px;
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
-            text-align: center;
-        }
-
-        .location-info h3 {
-            color: #2A2A2A;
-            margin-bottom: 1rem;
-        }
-
-        .address-link {
-            color: #E91E63;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-
-        .address-link:hover {
-            color: #C2185B;
-            text-decoration: underline;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .menu-section {
-                padding: 80px 0 20px;
-            }
-
-            .menu-header h1 {
-                font-size: 2.5rem;
-            }
-
-            .menu-header p {
-                font-size: 1rem;
-            }
-
-            .menu-iframe-wrapper {
-                height: 70vh;
-                min-height: 500px;
-                border-radius: 8px;
-            }
-
-            .menu-container {
-                padding: 0 0.5rem;
-            }
-
-            .location-info {
-                margin-top: 2rem;
-                padding: 1.5rem;
-            }
-
-            .order-buttons {
-                flex-direction: column;
-                gap: 0.8rem;
-            }
-
-            .order-btn {
-                padding: 0.8rem 1.5rem;
-                font-size: 0.9rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .menu-header {
-                padding: 0 1rem;
-            }
-
-            .menu-iframe-wrapper {
-                height: 65vh;
-                min-height: 450px;
-            }
-        }
-
-        /* Tablet specific adjustments */
-        @media (min-width: 769px) and (max-width: 1024px) {
-            .menu-iframe-wrapper {
-                height: 75vh;
-                min-height: 550px;
-            }
-        }
-
-        /* Large screen optimization */
-        @media (min-width: 1400px) {
-            .menu-iframe-wrapper {
-                height: 85vh;
-                min-height: 700px;
-            }
-        }
-
-        /* Menu Gallery Styles */
-        .paper-menu-section {
-            margin-top: 4rem;
-            text-align: center;
-        }
-
-        .paper-menu-section h3 {
-            color: #2A2A2A;
-            font-size: 1.8rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .paper-menu-section p {
-            color: #6B6B6B;
-            font-size: 1rem;
-            margin-bottom: 2rem;
-        }
-
-        .menu-gallery-container {
-            background: white;
-            border-radius: 12px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-            overflow-y: auto;
-            max-height: 1000px;
-            padding: 1rem;
-            margin-top: 2rem;
-        }
-
-        .menu-page {
-            display: flex;
-            justify-content: center;
-            padding: 1rem 0;
-        }
-
-        .menu-image {
-            max-width: 100%;
-            height: auto;
-            border-radius: 8px;
-            display: block;
-        }
-
-        .menu-page:not(:last-child) {
-            border-bottom: 2px solid #F0F0F0;
-            padding-bottom: 1.5rem;
-        }
-
-        /* Responsive Menu Gallery */
-        @media (max-width: 768px) {
-            .menu-gallery-container {
-                max-height: 800px;
-                padding: 0.75rem;
-            }
-
-            .paper-menu-section h3 {
-                font-size: 1.5rem;
-            }
-
-            .paper-menu-section p {
-                font-size: 0.95rem;
-            }
-
-            .menu-page {
-                padding: 0.75rem 0;
-            }
-
-            .menu-page:not(:last-child) {
-                padding-bottom: 1rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .menu-gallery-container {
-                max-height: 600px;
-                padding: 0.5rem;
-            }
-
-            .paper-menu-section h3 {
-                font-size: 1.3rem;
-            }
-
-            .menu-page {
-                padding: 0.5rem 0;
-            }
-
-            .menu-page:not(:last-child) {
-                padding-bottom: 0.75rem;
-            }
-        }
-    </style>
 </head>
 <body>
     <!-- Navigation -->
@@ -321,15 +15,13 @@
         <div class="nav-container">
             <div class="nav-logo">
                 <h1>Bread N' Br☕︎w</h1>
-                <span>COFFEE • FOOD SERVED • PATISSERIES</span>
+                <span class="nav-tagline">COFFEE • FRESH MEALS • PATISSERIES</span>
             </div>
             <ul class="nav-menu">
-                <li><a href="/">Home</a></li>
+                <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="menu.html" class="nav-active">Menu</a></li>
-                <li><a href="catering.html">Catering</a></li>
                 <li><a href="contact.html">Contact</a></li>
-                <li class="nav-order"><a href="https://online.skytab.com/s/breadnbrew" target="_blank" class="btn btn-primary nav-order-btn">Order Online</a></li>
             </ul>
             <div class="nav-toggle">
                 <span></span>
@@ -339,181 +31,368 @@
         </div>
     </nav>
 
-    <!-- Menu Section -->
-    <section class="menu-section">
-        <div class="menu-container">
-            <div class="menu-header">
-                <h1>Our Menu</h1>
-                <p>Explore our carefully crafted selection of artisanal breads, premium coffee, and exquisite pastries. Order online for pickup or delivery!</p>
-            </div>
+    <!-- Page Hero -->
+    <section class="page-hero menu-hero">
+        <div class="page-hero-content">
+            <h1>Our Menu</h1>
+            <p>Explore our handcrafted selections</p>
+        </div>
+    </section>
 
-            <div class="menu-iframe-wrapper">
-                <div class="loading-indicator" id="loadingIndicator">
-                    <div class="loading-spinner"></div>
-                    <p>Loading our delicious menu...</p>
-                </div>
-                <iframe 
-                    src="https://online.skytab.com/s/breadnbrew" 
-                    class="menu-iframe"
-                    id="menuIframe"
-                    title="Bread N' Brew Online Menu"
-                    loading="lazy"
-                    onload="hideLoading()"
-                    onerror="showFallback()">
-                </iframe>
+    <!-- Menu Categories Navigation -->
+    <div class="menu-nav-sticky">
+        <div class="container">
+            <div class="menu-nav-scroll">
+                <a href="#pastries" class="menu-nav-link">Pastries</a>
+                <a href="#coffee" class="menu-nav-link">Coffee</a>
+                <a href="#beverages" class="menu-nav-link">Beverages</a>
+                <a href="#meals" class="menu-nav-link">Meals</a>
             </div>
+        </div>
+    </div>
 
-            <div class="menu-fallback" id="menuFallback">
-                <h3>🍞 Menu Temporarily Unavailable</h3>
-                <p>We're having trouble loading our menu right now, but you can still place your order directly!</p>
-                <div class="order-buttons">
-                    <a href="https://online.skytab.com/s/breadnbrew" target="_blank" class="order-btn">
-                        🛒 Order Online Now
-                    </a>
-                    <a href="tel:+19089330123" class="order-btn" style="background: #4CAF50;">
-                        📞 Call to Order: (908) 933-0123
-                    </a>
-                </div>
-            </div>
-
-            <div class="paper-menu-section">
-                <h3>📄 Our Full Menu</h3>
-                <p>View our complete menu below</p>
-                <div class="menu-gallery-container">
-                    <div class="menu-page">
-                        <img src="https://cdn.builder.io/api/v1/image/assets%2F18ad66c16171422ab78a8acbaf631f50%2F542d24bc9dda45daa57398f8e9a031fb?format=webp&width=800&height=1200" alt="Menu Page 1 - Beverages and Refreshments" class="menu-image">
+    <!-- Menu Content -->
+    <section class="menu-content">
+        <div class="container">
+            <!-- Pastries Section -->
+            <div id="pastries" class="menu-category">
+                <h2>Fresh Pastries</h2>
+                <p>Handcrafted pastries made fresh daily with the finest ingredients</p>
+                <div class="menu-grid">
+                    <div class="menu-item">
+                        <div class="menu-item-image">
+                            <img src="https://images.pexels.com/photos/2097522/pexels-photo-2097522.jpeg" alt="Croissants and Muffins">
+                        </div>
+                        <div class="menu-item-details">
+                            <h3>Croissants & Muffins</h3>
+                            <p>Buttery, flaky croissants and fresh muffins in various flavors</p>
+                            <span class="menu-item-note">Made daily</span>
+                        </div>
                     </div>
-                    <div class="menu-page">
-                        <img src="https://cdn.builder.io/api/v1/image/assets%2F18ad66c16171422ab78a8acbaf631f50%2F3e88af1ab887493f9d08cf023c350eb4?format=webp&width=800&height=1200" alt="Menu Page 2 - Breakfast and Specialties" class="menu-image">
+
+                    <div class="menu-item">
+                        <div class="menu-item-image">
+                            <img src="https://images.pexels.com/photos/2097522/pexels-photo-2097522.jpeg" alt="Apple Turnovers">
+                        </div>
+                        <div class="menu-item-details">
+                            <h3>Apple Turnovers</h3>
+                            <p>Fresh apple filling wrapped in our signature pastry dough</p>
+                            <span class="menu-item-note">Seasonal availability</span>
+                        </div>
                     </div>
-                    <div class="menu-page">
-                        <img src="https://cdn.builder.io/api/v1/image/assets%2F18ad66c16171422ab78a8acbaf631f50%2Fcdf2e6c79b9143f98a3302c3bb33b147?format=webp&width=800&height=1200" alt="Menu Page 3 - Lunch Items and Salads" class="menu-image">
+
+                    <div class="menu-item">
+                        <div class="menu-item-image">
+                            <img src="https://images.pexels.com/photos/2097522/pexels-photo-2097522.jpeg" alt="Crumb Cakes">
+                        </div>
+                        <div class="menu-item-details">
+                            <h3>Crumb Cakes</h3>
+                            <p>Soft cake with our signature crumb topping</p>
+                            <span class="menu-item-note">Fresh daily</span>
+                        </div>
+                    </div>
+
+                    <div class="menu-item">
+                        <div class="menu-item-image">
+                            <img src="https://images.pexels.com/photos/2097522/pexels-photo-2097522.jpeg" alt="Tarts & Cakes">
+                        </div>
+                        <div class="menu-item-details">
+                            <h3>Tarts & Cakes</h3>
+                            <p>Elegant tarts and cakes featuring seasonal fruits and flavors</p>
+                            <span class="menu-item-note">Custom orders available</span>
+                        </div>
+                    </div>
+
+                    <div class="menu-item">
+                        <div class="menu-item-image">
+                            <img src="https://images.pexels.com/photos/2097522/pexels-photo-2097522.jpeg" alt="Scones">
+                        </div>
+                        <div class="menu-item-details">
+                            <h3>Scones</h3>
+                            <p>Traditional buttery scones in classic and specialty flavors</p>
+                            <span class="menu-item-note">Perfect with coffee</span>
+                        </div>
+                    </div>
+
+                    <div class="menu-item">
+                        <div class="menu-item-image">
+                            <img src="https://images.pexels.com/photos/2097522/pexels-photo-2097522.jpeg" alt="Danish Pastries">
+                        </div>
+                        <div class="menu-item-details">
+                            <h3>Danish Pastries</h3>
+                            <p>Layered Danish pastries with fruit, custard, and cheese fillings</p>
+                            <span class="menu-item-note">Made fresh</span>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <div class="location-info">
-                <h3>📍 Visit Our Location</h3>
-                <p>
-                    <a href="https://maps.google.com/?q=Bread+N'+Brew,+Springfield+Avenue,+Berkeley+Heights,+NJ"
-                       target="_blank"
-                       class="address-link"
-                       onclick="openGoogleMaps()">
-                        Bread N' Brew<br>
-                        Springfield Avenue<br>
-                        Berkeley Heights, NJ
-                    </a>
-                </p>
-                <p style="margin-top: 1rem; color: #6B6B6B;">
-                    <strong>Hours:</strong> Mon-Sat: 8:00 AM - 5:00 PM | Sun: 8:00 AM - 4:00 PM
-                </p>
+            <!-- Coffee Section -->
+            <div id="coffee" class="menu-category">
+                <h2>Coffee & Espresso</h2>
+                <p>Artisan-roasted coffee prepared with precision and passion</p>
+                <div class="menu-grid">
+                    <div class="menu-item">
+                        <div class="menu-item-image">
+                            <img src="https://images.pexels.com/photos/31767946/pexels-photo-31767946.jpeg" alt="Espresso">
+                        </div>
+                        <div class="menu-item-details">
+                            <h3>Espresso</h3>
+                            <p>Single or double shot of our signature espresso blend</p>
+                            <span class="menu-item-note">Rich & bold</span>
+                        </div>
+                    </div>
+
+                    <div class="menu-item">
+                        <div class="menu-item-image">
+                            <img src="https://images.pexels.com/photos/31767946/pexels-photo-31767946.jpeg" alt="Cappuccino">
+                        </div>
+                        <div class="menu-item-details">
+                            <h3>Cappuccino</h3>
+                            <p>Smooth espresso with velvety steamed milk and light foam</p>
+                            <span class="menu-item-note">Classic favorite</span>
+                        </div>
+                    </div>
+
+                    <div class="menu-item">
+                        <div class="menu-item-image">
+                            <img src="https://images.pexels.com/photos/31767946/pexels-photo-31767946.jpeg" alt="Latte">
+                        </div>
+                        <div class="menu-item-details">
+                            <h3>Latte</h3>
+                            <p>Espresso with steamed milk and creamy foam</p>
+                            <span class="menu-item-note">Customize with flavors</span>
+                        </div>
+                    </div>
+
+                    <div class="menu-item">
+                        <div class="menu-item-image">
+                            <img src="https://images.pexels.com/photos/31767946/pexels-photo-31767946.jpeg" alt="Americano">
+                        </div>
+                        <div class="menu-item-details">
+                            <h3>Americano</h3>
+                            <p>Bold espresso shots with hot water for a smooth, full-bodied drink</p>
+                            <span class="menu-item-note">Perfect for purists</span>
+                        </div>
+                    </div>
+
+                    <div class="menu-item">
+                        <div class="menu-item-image">
+                            <img src="https://images.pexels.com/photos/31767946/pexels-photo-31767946.jpeg" alt="Cold Brew">
+                        </div>
+                        <div class="menu-item-details">
+                            <h3>Cold Brew</h3>
+                            <p>Smooth, cold-steeped coffee served over ice</p>
+                            <span class="menu-item-note">Refreshing & smooth</span>
+                        </div>
+                    </div>
+
+                    <div class="menu-item">
+                        <div class="menu-item-image">
+                            <img src="https://images.pexels.com/photos/31767946/pexels-photo-31767946.jpeg" alt="Flat White">
+                        </div>
+                        <div class="menu-item-details">
+                            <h3>Flat White</h3>
+                            <p>Espresso with silky microfoam for the ultimate creamy experience</p>
+                            <span class="menu-item-note">Specialty favorite</span>
+                        </div>
+                    </div>
+                </div>
             </div>
+
+            <!-- Beverages Section -->
+            <div id="beverages" class="menu-category">
+                <h2>Specialty Beverages</h2>
+                <p>Refreshing drinks crafted to perfection</p>
+                <div class="menu-grid">
+                    <div class="menu-item">
+                        <div class="menu-item-image">
+                            <img src="https://images.pexels.com/photos/33166521/pexels-photo-33166521.jpeg" alt="Smoothies">
+                        </div>
+                        <div class="menu-item-details">
+                            <h3>Smoothies</h3>
+                            <p>Blended fruit smoothies with fresh ingredients and yogurt</p>
+                            <span class="menu-item-note">Various flavors</span>
+                        </div>
+                    </div>
+
+                    <div class="menu-item">
+                        <div class="menu-item-image">
+                            <img src="https://images.pexels.com/photos/33166521/pexels-photo-33166521.jpeg" alt="Bubble Tea">
+                        </div>
+                        <div class="menu-item-details">
+                            <h3>Bubble Tea</h3>
+                            <p>Creamy tea drinks with tapioca pearls and toppings</p>
+                            <span class="menu-item-note">Hot or iced</span>
+                        </div>
+                    </div>
+
+                    <div class="menu-item">
+                        <div class="menu-item-image">
+                            <img src="https://images.pexels.com/photos/33166521/pexels-photo-33166521.jpeg" alt="Ice Cream">
+                        </div>
+                        <div class="menu-item-details">
+                            <h3>Ice Cream</h3>
+                            <p>Creamy, handcrafted ice cream in a wide array of flavors</p>
+                            <span class="menu-item-note">Seasonal specials</span>
+                        </div>
+                    </div>
+
+                    <div class="menu-item">
+                        <div class="menu-item-image">
+                            <img src="https://images.pexels.com/photos/33166521/pexels-photo-33166521.jpeg" alt="Iced Tea">
+                        </div>
+                        <div class="menu-item-details">
+                            <h3>Iced Tea</h3>
+                            <p>Refreshing brewed iced tea served with fresh citrus and herbs</p>
+                            <span class="menu-item-note">Naturally sweet</span>
+                        </div>
+                    </div>
+
+                    <div class="menu-item">
+                        <div class="menu-item-image">
+                            <img src="https://images.pexels.com/photos/33166521/pexels-photo-33166521.jpeg" alt="Hot Chocolate">
+                        </div>
+                        <div class="menu-item-details">
+                            <h3>Hot Chocolate</h3>
+                            <p>Rich, creamy hot chocolate made from premium chocolate</p>
+                            <span class="menu-item-note">Cozy favorite</span>
+                        </div>
+                    </div>
+
+                    <div class="menu-item">
+                        <div class="menu-item-image">
+                            <img src="https://images.pexels.com/photos/33166521/pexels-photo-33166521.jpeg" alt="Matcha Latte">
+                        </div>
+                        <div class="menu-item-details">
+                            <h3>Matcha Latte</h3>
+                            <p>Traditional green tea latte with steamed milk</p>
+                            <span class="menu-item-note">Antioxidant-rich</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Meals Section -->
+            <div id="meals" class="menu-category">
+                <h2>Fresh Meals</h2>
+                <p>Breakfast & lunch served all day long with the freshest ingredients</p>
+                <div class="menu-grid">
+                    <div class="menu-item">
+                        <div class="menu-item-image">
+                            <img src="https://images.pexels.com/photos/4491396/pexels-photo-4491396.jpeg" alt="Breakfast Sandwich">
+                        </div>
+                        <div class="menu-item-details">
+                            <h3>Breakfast Sandwich</h3>
+                            <p>Fresh eggs, cheese, and your choice of bacon or sausage</p>
+                            <span class="menu-item-note">On artisan bread</span>
+                        </div>
+                    </div>
+
+                    <div class="menu-item">
+                        <div class="menu-item-image">
+                            <img src="https://images.pexels.com/photos/4491396/pexels-photo-4491396.jpeg" alt="Avocado Toast">
+                        </div>
+                        <div class="menu-item-details">
+                            <h3>Avocado Toast</h3>
+                            <p>Ripe avocado on toasted artisan bread with fresh toppings</p>
+                            <span class="menu-item-note">Healthy & delicious</span>
+                        </div>
+                    </div>
+
+                    <div class="menu-item">
+                        <div class="menu-item-image">
+                            <img src="https://images.pexels.com/photos/4491396/pexels-photo-4491396.jpeg" alt="Salads">
+                        </div>
+                        <div class="menu-item-details">
+                            <h3>Fresh Salads</h3>
+                            <p>Seasonal salads with fresh vegetables and house-made dressings</p>
+                            <span class="menu-item-note">Made to order</span>
+                        </div>
+                    </div>
+
+                    <div class="menu-item">
+                        <div class="menu-item-image">
+                            <img src="https://images.pexels.com/photos/4491396/pexels-photo-4491396.jpeg" alt="Panini">
+                        </div>
+                        <div class="menu-item-details">
+                            <h3>Panini Sandwiches</h3>
+                            <p>Grilled sandwiches with premium fillings and fresh ingredients</p>
+                            <span class="menu-item-note">Warm & satisfying</span>
+                        </div>
+                    </div>
+
+                    <div class="menu-item">
+                        <div class="menu-item-image">
+                            <img src="https://images.pexels.com/photos/4491396/pexels-photo-4491396.jpeg" alt="Soup">
+                        </div>
+                        <div class="menu-item-details">
+                            <h3>House Made Soup</h3>
+                            <p>Daily rotating selection of fresh, homemade soups</p>
+                            <span class="menu-item-note">Comfort in a bowl</span>
+                        </div>
+                    </div>
+
+                    <div class="menu-item">
+                        <div class="menu-item-image">
+                            <img src="https://images.pexels.com/photos/4491396/pexels-photo-4491396.jpeg" alt="Seasonal Special">
+                        </div>
+                        <div class="menu-item-details">
+                            <h3>Seasonal Specials</h3>
+                            <p>Chef's special creations featuring seasonal ingredients</p>
+                            <span class="menu-item-note">Limited time</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Order CTA -->
+    <section class="order-cta-section">
+        <div class="container">
+            <h2>Ready to Order?</h2>
+            <p>Place your order now and pick up at our café</p>
+            <a href="https://online.skytab.com/s/breadnbrew" target="_blank" class="btn btn-primary btn-large">Order Now</a>
         </div>
     </section>
 
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <div class="footer-content">
+            <div class="footer-grid">
                 <div class="footer-section">
-                    <h3>Bread N' Br☕︎w</h3>
-                    <p>Where every bite and sip tells a story of craft and community.</p>
+                    <h3>Bread N' Brew</h3>
+                    <p>Where every bite and sip celebrates the art of craft and community.</p>
                 </div>
                 <div class="footer-section">
                     <h4>Quick Links</h4>
                     <ul>
-                        <li><a href="/about">About Us</a></li>
-                        <li><a href="/menu">Menu</a></li>
-                        <li><a href="/catering">Catering</a></li>
-                        <li><a href="/contact">Contact</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="menu.html">Menu</a></li>
+                        <li><a href="contact.html">Contact</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
-                    <h4>Visit Us</h4>
-                    <p>
-                        <a href="https://maps.google.com/?q=Bread+N'+Brew,+Springfield+Avenue,+Berkeley+Heights,+NJ" 
-                           target="_blank" 
-                           class="address-link"
-                           onclick="openGoogleMaps()">
-                            Bread N' Brew<br>
-                            Springfield Avenue<br>
-                            Berkeley Heights, NJ
-                        </a><br>
-                        <a href="tel:+19089330123">(908) 933-0123</a>
-                    </p>
-                    <a href="https://maps.google.com/?q=Bread+N'+Brew,+Springfield+Avenue,+Berkeley+Heights,+NJ" 
-                       target="_blank" 
-                       class="directions-link"
-                       onclick="openGoogleMaps()">Get Directions via Google Maps</a>
+                    <h4>Hours</h4>
+                    <p>Monday - Friday: 8:00 AM - 5:00 PM<br>
+                    Saturday: 8:00 AM - 5:00 PM<br>
+                    Sunday: 8:00 AM - 4:00 PM</p>
                 </div>
                 <div class="footer-section">
-                    <h4>Hours</h4>
-                    <p>Mon-Sat: 8:00 AM - 5:00 PM<br>
-                    Sun: 8:00 AM - 4:00 PM</p>
+                    <h4>Contact</h4>
+                    <p>512 Springfield Ave<br>
+                    Berkeley Heights, NJ 07922<br>
+                    <a href="tel:+19089330123">(908) 933-0123</a><br>
+                    <a href="mailto:breadnbrew512@gmail.com">breadnbrew512@gmail.com</a></p>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 Bread N' Br☕︎w. All rights reserved.</p>
+                <p>&copy; 2025 Bread N' Brew. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
     <script src="script.js"></script>
-    <script>
-        // Menu page specific JavaScript
-        function hideLoading() {
-            const loadingIndicator = document.getElementById('loadingIndicator');
-            if (loadingIndicator) {
-                loadingIndicator.style.display = 'none';
-            }
-        }
-
-        function showFallback() {
-            const loadingIndicator = document.getElementById('loadingIndicator');
-            const menuFallback = document.getElementById('menuFallback');
-            const menuIframe = document.getElementById('menuIframe');
-            
-            if (loadingIndicator) loadingIndicator.style.display = 'none';
-            if (menuIframe) menuIframe.style.display = 'none';
-            if (menuFallback) menuFallback.style.display = 'block';
-        }
-
-        function openGoogleMaps() {
-            // Track analytics if needed
-            console.log('Opening Google Maps for Bread N\' Brew location');
-        }
-
-        // Hide loading indicator after 10 seconds if iframe doesn't load
-        setTimeout(() => {
-            const loadingIndicator = document.getElementById('loadingIndicator');
-            if (loadingIndicator && loadingIndicator.style.display !== 'none') {
-                hideLoading();
-            }
-        }, 10000);
-
-        // Responsive iframe height adjustment
-        function adjustIframeHeight() {
-            const iframe = document.getElementById('menuIframe');
-            const wrapper = document.querySelector('.menu-iframe-wrapper');
-            
-            if (iframe && wrapper) {
-                // Ensure iframe maintains responsive height
-                iframe.style.height = '100%';
-            }
-        }
-
-        // Adjust on load and resize
-        window.addEventListener('load', adjustIframeHeight);
-        window.addEventListener('resize', adjustIframeHeight);
-
-        // Handle iframe communication for better UX
-        window.addEventListener('message', function(event) {
-            // Handle messages from the embedded menu if needed
-            if (event.origin === 'https://online.skytab.com') {
-                console.log('Message from SkyTab menu:', event.data);
-            }
-        });
-
-    </script>
 </body>
 </html>

@@ -22,6 +22,7 @@
                 <li><a href="about.html">About</a></li>
                 <li><a href="menu.html" class="nav-active">Menu</a></li>
                 <li><a href="contact.html">Contact</a></li>
+                <li><a href="https://online.skytab.com/s/breadnbrew" target="_blank" class="btn btn-primary btn-small nav-order-btn">ORDER NOW</a></li>
             </ul>
             <div class="nav-toggle">
                 <span></span>
@@ -32,17 +33,18 @@
     </nav>
 
     <!-- Page Hero -->
-    <section class="page-hero menu-hero">
+    <section class="page-hero menu-hero" style="background-image: url('images/menu.jpg');">
         <div class="page-hero-content">
             <h1>Our Menu</h1>
             <p>All Day • Fresh • Delicious</p>
         </div>
     </section>
 
-    <!-- Menu Navigation Dropdown -->
+    <!-- Menu Navigation -->
     <div class="menu-nav-sticky">
         <div class="container">
-            <div class="menu-dropdown-wrapper">
+            <!-- Mobile Toggle -->
+            <div class="menu-dropdown-wrapper mobile-only">
                 <button class="menu-dropdown-btn">
                     <span>Jump to Category</span>
                     <span class="dropdown-arrow">▼</span>
@@ -56,6 +58,17 @@
                     <a href="#bubble-tea" class="menu-dropdown-link">Bubble Tea</a>
                     <a href="#non-caff" class="menu-dropdown-link">Non-Caffeinated</a>
                 </div>
+            </div>
+
+            <!-- Desktop Layout -->
+            <div class="menu-desktop-nav desktop-only">
+                <a href="#sandwiches" class="menu-desktop-link">Sandwiches</a>
+                <a href="#salads" class="menu-desktop-link">Salads</a>
+                <a href="#speciality" class="menu-desktop-link">Speciality</a>
+                <a href="#breakfast" class="menu-desktop-link">Breakfast</a>
+                <a href="#coffee" class="menu-desktop-link">Coffee</a>
+                <a href="#bubble-tea" class="menu-desktop-link">Bubble Tea</a>
+                <a href="#non-caff" class="menu-desktop-link">Non-Caffeinated</a>
             </div>
         </div>
     </div>
@@ -745,6 +758,11 @@
             </div>
         </div>
     </footer>
+
+    <!-- Jump to Top Button -->
+    <button id="jump-to-top" class="jump-to-top" aria-label="Jump to top">
+        <span>↑</span>
+    </button>
 
     <script src="script.js"></script>
 </body>

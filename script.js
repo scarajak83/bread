@@ -20,11 +20,55 @@ document.addEventListener('DOMContentLoaded', function() {
         // Initialize menu dropdown
         initMenuDropdown();
 
+        // Initialize scroll to top
+        initJumpToTop();
+
+        // Initialize banner animation
+        initBannerAnimation();
+
         console.log('☕ Bread N\' Brew website initialized successfully!');
     } catch (error) {
         console.error('Error during initialization:', error);
     }
 });
+
+// Jump to Top Functionality
+function initJumpToTop() {
+    const jumpBtn = document.getElementById('jump-to-top');
+
+    if (jumpBtn) {
+        window.addEventListener('scroll', function() {
+            if (window.pageYOffset > 300) {
+                jumpBtn.classList.add('show');
+            } else {
+                jumpBtn.classList.remove('show');
+            }
+        });
+
+        jumpBtn.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    }
+}
+
+// Banner Scroll Animation
+function initBannerAnimation() {
+    const hero = document.querySelector('.hero');
+    if (hero) {
+        window.addEventListener('scroll', function() {
+            const scroll = window.pageYOffset;
+            // Create a parallax and subtle zoom effect
+            const scale = 1 + (scroll * 0.0005);
+            const translateY = scroll * 0.3;
+            hero.style.backgroundPosition = `center ${translateY}px`;
+            // Note: background-size doesn't support easy scaling via JS without changing the string,
+            // so we'll stick to background-position for parallax
+        });
+    }
+}
 
 // Initialize EmailJS
 function initEmailJS() {

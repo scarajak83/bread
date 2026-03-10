@@ -364,7 +364,7 @@ function openDetailsModal(button) {
     document.getElementById('modalDescription').textContent = description;
 
     // Default allergens/info (can be customized per item)
-    const allergenText = 'Contains: Gluten, Dairy\n\nServed with care. Ask server about specific allergies.';
+    const allergenText = 'Ask staff about specific allergies.';
     document.getElementById('allergensList').textContent = allergenText;
 
     // Show modal

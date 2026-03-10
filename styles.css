@@ -76,8 +76,8 @@ a:hover {
 /* ==================== BUTTONS ==================== */
 .btn {
     display: inline-block;
-    padding: 0.8rem 2rem;
-    border-radius: 50px;
+    padding: 0.9rem 2.5rem;
+    border-radius: 8px; /* Rectangular with rounded ends */
     font-weight: 600;
     text-align: center;
     transition: var(--transition);
@@ -87,6 +87,8 @@ a:hover {
     font-size: 0.95rem;
     font-family: 'Inter', sans-serif;
     text-transform: uppercase;
+    position: relative;
+    overflow: hidden;
 }
 
 .btn-primary {
@@ -162,20 +164,20 @@ a:hover {
 
 .nav-logo h1 {
     color: var(--primary-color);
-    font-family: 'Inter', sans-serif;
-    font-weight: 800;
-    font-size: 1.8rem;
-    margin-bottom: 0.2rem;
-    text-transform: uppercase;
-    letter-spacing: -1px;
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 2rem;
+    margin-bottom: 0.1rem;
+    text-transform: none; /* No caps unless directed */
+    letter-spacing: 0.5px;
 }
 
 .nav-tagline {
     color: var(--secondary-color);
     font-family: 'Inter', sans-serif;
-    font-size: 0.7rem;
+    font-size: 0.65rem;
     font-weight: 500;
-    letter-spacing: 3px;
+    letter-spacing: 2px;
     display: block;
     text-transform: uppercase;
 }
@@ -802,10 +804,39 @@ a:hover {
     margin-top: auto;
 }
 
+/* Remove underline from nav menu items for buttons */
+.nav-menu a.nav-order-btn::after {
+    display: none;
+}
+
+/* Sparkle Effect for specific buttons */
+.btn-sparkle:hover::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:
+        radial-gradient(circle, var(--secondary-color) 1px, transparent 1px),
+        radial-gradient(circle, var(--secondary-color) 1px, transparent 1px);
+    background-size: 15px 15px;
+    background-position: 0 0, 7px 7px;
+    opacity: 0.4;
+    animation: sparkles 1s linear infinite;
+    pointer-events: none;
+}
+
+@keyframes sparkles {
+    0% { transform: translateY(0); opacity: 0; }
+    50% { opacity: 0.6; }
+    100% { transform: translateY(-10px); opacity: 0; }
+}
+
 .btn-menu-primary,
 .btn-menu-secondary {
     flex: 1;
-    padding: 0.7rem 1rem;
+    padding: 1rem 1.5rem; /* More open, less squished */
     border-radius: 8px;
     font-size: 0.85rem;
     font-weight: 600;
@@ -816,6 +847,7 @@ a:hover {
     text-decoration: none;
     display: inline-block;
     font-family: 'Inter', sans-serif;
+    text-transform: uppercase;
 }
 
 .btn-menu-primary {

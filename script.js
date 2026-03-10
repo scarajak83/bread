@@ -17,6 +17,9 @@ document.addEventListener('DOMContentLoaded', function() {
         // Initialize contact form
         initContactForm();
 
+        // Initialize menu dropdown
+        initMenuDropdown();
+
         console.log('☕ Bread N\' Brew website initialized successfully!');
     } catch (error) {
         console.error('Error during initialization:', error);
@@ -272,6 +275,80 @@ window.addEventListener('resize', function() {
             navMenu.classList.remove('active');
         }
     }, 250);
+});
+
+// Menu Dropdown Functionality
+function initMenuDropdown() {
+    const dropdownBtn = document.querySelector('.menu-dropdown-btn');
+    const dropdownContent = document.querySelector('.menu-dropdown-content');
+    const dropdownLinks = document.querySelectorAll('.menu-dropdown-link');
+
+    if (dropdownBtn && dropdownContent) {
+        // Toggle dropdown on button click
+        dropdownBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            dropdownContent.classList.toggle('active');
+            dropdownBtn.classList.toggle('active');
+        });
+
+        // Close dropdown when link is clicked
+        dropdownLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                dropdownContent.classList.remove('active');
+                dropdownBtn.classList.remove('active');
+            });
+        });
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!dropdownBtn.contains(e.target) && !dropdownContent.contains(e.target)) {
+                dropdownContent.classList.remove('active');
+                dropdownBtn.classList.remove('active');
+            }
+        });
+    }
+}
+
+// Details Modal Functions
+function openDetailsModal(button) {
+    const modal = document.getElementById('detailsModal');
+    const title = button.closest('.menu-item-card').querySelector('h3').textContent;
+    const description = button.closest('.menu-item-card').querySelector('p').textContent;
+
+    // Set modal content
+    document.getElementById('modalTitle').textContent = title;
+    document.getElementById('modalDescription').textContent = description;
+
+    // Default allergens/info (can be customized per item)
+    const allergenText = 'Contains: Gluten, Dairy\n\nServed with care. Ask server about specific allergies.';
+    document.getElementById('allergensList').textContent = allergenText;
+
+    // Show modal
+    modal.classList.add('active');
+
+    // Prevent body scroll
+    document.body.style.overflow = 'hidden';
+}
+
+function closeDetailsModal() {
+    const modal = document.getElementById('detailsModal');
+    modal.classList.remove('active');
+    document.body.style.overflow = '';
+}
+
+// Close modal when clicking outside
+window.addEventListener('click', function(e) {
+    const modal = document.getElementById('detailsModal');
+    if (e.target === modal) {
+        closeDetailsModal();
+    }
+});
+
+// Close modal with Escape key
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+        closeDetailsModal();
+    }
 });
 
 console.log('☕ Bread N\' Brew - Modern website loaded!');

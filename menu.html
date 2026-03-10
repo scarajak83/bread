@@ -39,17 +39,23 @@
         </div>
     </section>
 
-    <!-- Menu Navigation -->
+    <!-- Menu Navigation Dropdown -->
     <div class="menu-nav-sticky">
         <div class="container">
-            <div class="menu-nav-scroll">
-                <a href="#sandwiches" class="menu-nav-link">Sandwiches</a>
-                <a href="#salads" class="menu-nav-link">Salads</a>
-                <a href="#speciality" class="menu-nav-link">Speciality</a>
-                <a href="#breakfast" class="menu-nav-link">Breakfast</a>
-                <a href="#coffee" class="menu-nav-link">Coffee</a>
-                <a href="#bubble-tea" class="menu-nav-link">Bubble Tea</a>
-                <a href="#non-caff" class="menu-nav-link">Smoothies</a>
+            <div class="menu-dropdown-wrapper">
+                <button class="menu-dropdown-btn">
+                    <span>Jump to Category</span>
+                    <span class="dropdown-arrow">▼</span>
+                </button>
+                <div class="menu-dropdown-content">
+                    <a href="#sandwiches" class="menu-dropdown-link">Sandwiches</a>
+                    <a href="#salads" class="menu-dropdown-link">Salads</a>
+                    <a href="#speciality" class="menu-dropdown-link">Speciality</a>
+                    <a href="#breakfast" class="menu-dropdown-link">Breakfast</a>
+                    <a href="#coffee" class="menu-dropdown-link">Coffee</a>
+                    <a href="#bubble-tea" class="menu-dropdown-link">Bubble Tea</a>
+                    <a href="#non-caff" class="menu-dropdown-link">Non-Caffeinated</a>
+                </div>
             </div>
         </div>
     </div>
@@ -73,7 +79,7 @@
                             <p>Seasoned chicken breast, baby spinach, tomato, and chipotle aioli on sourdough bread</p>
                             <div class="menu-item-actions">
                                 <a href="https://online.skytab.com/s/breadnbrew" target="_blank" class="btn-menu-primary">Order Now</a>
-                                <a href="#" class="btn-menu-secondary">Details</a>
+                                <button class="btn-menu-secondary details-btn" onclick="openDetailsModal(this)">Details</button>
                             </div>
                         </div>
                     </div>
@@ -87,7 +93,7 @@
                             <p>Whipped goat cheese, prosciutto, fig paste, and baby arugula on sourdough bread</p>
                             <div class="menu-item-actions">
                                 <a href="https://online.skytab.com/s/breadnbrew" target="_blank" class="btn-menu-primary">Order Now</a>
-                                <a href="#" class="btn-menu-secondary">Details</a>
+                                <button class="btn-menu-secondary details-btn" onclick="openDetailsModal(this)">Details</button>
                             </div>
                         </div>
                     </div>
@@ -101,7 +107,7 @@
                             <p>Mozzarella, mortadella, and baby arugula on sourdough bread</p>
                             <div class="menu-item-actions">
                                 <a href="https://online.skytab.com/s/breadnbrew" target="_blank" class="btn-menu-primary">Order Now</a>
-                                <a href="#" class="btn-menu-secondary">Details</a>
+                                <button class="btn-menu-secondary details-btn" onclick="openDetailsModal(this)">Details</button>
                             </div>
                         </div>
                     </div>
@@ -115,7 +121,7 @@
                             <p>Sliced turkey, Swiss or Provolone cheese, lettuce, and tomato on sourdough bread</p>
                             <div class="menu-item-actions">
                                 <a href="https://online.skytab.com/s/breadnbrew" target="_blank" class="btn-menu-primary">Order Now</a>
-                                <a href="#" class="btn-menu-secondary">Details</a>
+                                <button class="btn-menu-secondary details-btn" onclick="openDetailsModal(this)">Details</button>
                             </div>
                         </div>
                     </div>
@@ -129,7 +135,7 @@
                             <p>Chunk of tuna, mayonnaise, chopped celery, onion, and avocado on sourdough bread</p>
                             <div class="menu-item-actions">
                                 <a href="https://online.skytab.com/s/breadnbrew" target="_blank" class="btn-menu-primary">Order Now</a>
-                                <a href="#" class="btn-menu-secondary">Details</a>
+                                <button class="btn-menu-secondary details-btn" onclick="openDetailsModal(this)">Details</button>
                             </div>
                         </div>
                     </div>
@@ -143,7 +149,7 @@
                             <p>Seasoned chicken and crisp lettuce on a warm tortilla</p>
                             <div class="menu-item-actions">
                                 <a href="https://online.skytab.com/s/breadnbrew" target="_blank" class="btn-menu-primary">Order Now</a>
-                                <a href="#" class="btn-menu-secondary">Details</a>
+                                <button class="btn-menu-secondary details-btn" onclick="openDetailsModal(this)">Details</button>
                             </div>
                         </div>
                     </div>
@@ -157,7 +163,7 @@
                             <p>American, Swiss, or cheddar cheese on sourdough bread</p>
                             <div class="menu-item-actions">
                                 <a href="https://online.skytab.com/s/breadnbrew" target="_blank" class="btn-menu-primary">Order Now</a>
-                                <a href="#" class="btn-menu-secondary">Details</a>
+                                <button class="btn-menu-secondary details-btn" onclick="openDetailsModal(this)">Details</button>
                             </div>
                         </div>
                     </div>
@@ -171,7 +177,7 @@
                             <p>Turkey, bacon, lettuce, and tomato on sourdough bread</p>
                             <div class="menu-item-actions">
                                 <a href="https://online.skytab.com/s/breadnbrew" target="_blank" class="btn-menu-primary">Order Now</a>
-                                <a href="#" class="btn-menu-secondary">Details</a>
+                                <button class="btn-menu-secondary details-btn" onclick="openDetailsModal(this)">Details</button>
                             </div>
                         </div>
                     </div>
@@ -185,7 +191,7 @@
                             <p>Fresh, homemade daily</p>
                             <div class="menu-item-actions">
                                 <a href="https://online.skytab.com/s/breadnbrew" target="_blank" class="btn-menu-primary">Order Now</a>
-                                <a href="#" class="btn-menu-secondary">Details</a>
+                                <button class="btn-menu-secondary details-btn" onclick="openDetailsModal(this)">Details</button>
                             </div>
                         </div>
                     </div>
@@ -208,7 +214,7 @@
                             <p>Baby spinach, cucumbers, tomatoes, red onions, feta cheese, and kalamata olives</p>
                             <div class="menu-item-actions">
                                 <a href="https://online.skytab.com/s/breadnbrew" target="_blank" class="btn-menu-primary">Order Now</a>
-                                <a href="#" class="btn-menu-secondary">Details</a>
+                                <button class="btn-menu-secondary details-btn" onclick="openDetailsModal(this)">Details</button>
                             </div>
                         </div>
                     </div>
@@ -222,7 +228,7 @@
                             <p>Mix greens, baby spinach, boiled eggs, red onion, cherry tomato, bacon, avocado</p>
                             <div class="menu-item-actions">
                                 <a href="https://online.skytab.com/s/breadnbrew" target="_blank" class="btn-menu-primary">Order Now</a>
-                                <a href="#" class="btn-menu-secondary">Details</a>
+                                <button class="btn-menu-secondary details-btn" onclick="openDetailsModal(this)">Details</button>
                             </div>
                         </div>
                     </div>
@@ -236,7 +242,7 @@
                             <p>Lettuce and mixed greens, feta cheese, fresh green peppers, cherry tomatoes, cucumbers, and red onion</p>
                             <div class="menu-item-actions">
                                 <a href="https://online.skytab.com/s/breadnbrew" target="_blank" class="btn-menu-primary">Order Now</a>
-                                <a href="#" class="btn-menu-secondary">Details</a>
+                                <button class="btn-menu-secondary details-btn" onclick="openDetailsModal(this)">Details</button>
                             </div>
                         </div>
                     </div>
@@ -250,7 +256,7 @@
                             <p>Avocado, cherry tomatoes, cucumbers, cilantro, and red onion</p>
                             <div class="menu-item-actions">
                                 <a href="https://online.skytab.com/s/breadnbrew" target="_blank" class="btn-menu-primary">Order Now</a>
-                                <a href="#" class="btn-menu-secondary">Details</a>
+                                <button class="btn-menu-secondary details-btn" onclick="openDetailsModal(this)">Details</button>
                             </div>
                         </div>
                     </div>
@@ -273,7 +279,7 @@
                             <p>Homemade empanada with your choice of spicy or mild sauce</p>
                             <div class="menu-item-actions">
                                 <a href="https://online.skytab.com/s/breadnbrew" target="_blank" class="btn-menu-primary">Order Now</a>
-                                <a href="#" class="btn-menu-secondary">Details</a>
+                                <button class="btn-menu-secondary details-btn" onclick="openDetailsModal(this)">Details</button>
                             </div>
                         </div>
                     </div>
@@ -287,7 +293,7 @@
                             <p>Homemade seasoned beef garnished with fresh onion, cilantro, avocado</p>
                             <div class="menu-item-actions">
                                 <a href="https://online.skytab.com/s/breadnbrew" target="_blank" class="btn-menu-primary">Order Now</a>
-                                <a href="#" class="btn-menu-secondary">Details</a>
+                                <button class="btn-menu-secondary details-btn" onclick="openDetailsModal(this)">Details</button>
                             </div>
                         </div>
                     </div>
@@ -301,7 +307,7 @@
                             <p>Homemade seasoned chicken garnished with fresh onion, cilantro, avocado</p>
                             <div class="menu-item-actions">
                                 <a href="https://online.skytab.com/s/breadnbrew" target="_blank" class="btn-menu-primary">Order Now</a>
-                                <a href="#" class="btn-menu-secondary">Details</a>
+                                <button class="btn-menu-secondary details-btn" onclick="openDetailsModal(this)">Details</button>
                             </div>
                         </div>
                     </div>
@@ -315,7 +321,7 @@
                             <p>Chickpeas, cilantro, onions, and garlic, topped with pickle and tahini sauce</p>
                             <div class="menu-item-actions">
                                 <a href="https://online.skytab.com/s/breadnbrew" target="_blank" class="btn-menu-primary">Order Now</a>
-                                <a href="#" class="btn-menu-secondary">Details</a>
+                                <button class="btn-menu-secondary details-btn" onclick="openDetailsModal(this)">Details</button>
                             </div>
                         </div>
                     </div>
@@ -329,7 +335,7 @@
                             <p>Crispy, golden perfection</p>
                             <div class="menu-item-actions">
                                 <a href="https://online.skytab.com/s/breadnbrew" target="_blank" class="btn-menu-primary">Order Now</a>
-                                <a href="#" class="btn-menu-secondary">Details</a>
+                                <button class="btn-menu-secondary details-btn" onclick="openDetailsModal(this)">Details</button>
                             </div>
                         </div>
                     </div>
@@ -352,7 +358,7 @@
                             <p>Fresh Italian sausage and basil purée on Texas toast</p>
                             <div class="menu-item-actions">
                                 <a href="https://online.skytab.com/s/breadnbrew" target="_blank" class="btn-menu-primary">Order Now</a>
-                                <a href="#" class="btn-menu-secondary">Details</a>
+                                <button class="btn-menu-secondary details-btn" onclick="openDetailsModal(this)">Details</button>
                             </div>
                         </div>
                     </div>
@@ -366,7 +372,7 @@
                             <p>Choose veggie or bacon & Italian sausage, served with fresh fruit</p>
                             <div class="menu-item-actions">
                                 <a href="https://online.skytab.com/s/breadnbrew" target="_blank" class="btn-menu-primary">Order Now</a>
-                                <a href="#" class="btn-menu-secondary">Details</a>
+                                <button class="btn-menu-secondary details-btn" onclick="openDetailsModal(this)">Details</button>
                             </div>
                         </div>
                     </div>
@@ -380,7 +386,7 @@
                             <p>Eggs, baby spinach, grape tomatoes, and feta cheese, served with fresh fruit</p>
                             <div class="menu-item-actions">
                                 <a href="https://online.skytab.com/s/breadnbrew" target="_blank" class="btn-menu-primary">Order Now</a>
-                                <a href="#" class="btn-menu-secondary">Details</a>
+                                <button class="btn-menu-secondary details-btn" onclick="openDetailsModal(this)">Details</button>
                             </div>
                         </div>
                     </div>
@@ -394,7 +400,7 @@
                             <p>Ripe avocado and two poached eggs on sourdough bread, served with fresh fruit</p>
                             <div class="menu-item-actions">
                                 <a href="https://online.skytab.com/s/breadnbrew" target="_blank" class="btn-menu-primary">Order Now</a>
-                                <a href="#" class="btn-menu-secondary">Details</a>
+                                <button class="btn-menu-secondary details-btn" onclick="openDetailsModal(this)">Details</button>
                             </div>
                         </div>
                     </div>
@@ -408,7 +414,7 @@
                             <p>Golden, buttermilk pancakes served with fresh fruit</p>
                             <div class="menu-item-actions">
                                 <a href="https://online.skytab.com/s/breadnbrew" target="_blank" class="btn-menu-primary">Order Now</a>
-                                <a href="#" class="btn-menu-secondary">Details</a>
+                                <button class="btn-menu-secondary details-btn" onclick="openDetailsModal(this)">Details</button>
                             </div>
                         </div>
                     </div>
@@ -422,7 +428,7 @@
                             <p>Creamy, comforting oatmeal made fresh daily with fresh fruit on top</p>
                             <div class="menu-item-actions">
                                 <a href="https://online.skytab.com/s/breadnbrew" target="_blank" class="btn-menu-primary">Order Now</a>
-                                <a href="#" class="btn-menu-secondary">Details</a>
+                                <button class="btn-menu-secondary details-btn" onclick="openDetailsModal(this)">Details</button>
                             </div>
                         </div>
                     </div>
@@ -436,7 +442,7 @@
                             <p>Two eggs with American cheese on Texas Toast</p>
                             <div class="menu-item-actions">
                                 <a href="https://online.skytab.com/s/breadnbrew" target="_blank" class="btn-menu-primary">Order Now</a>
-                                <a href="#" class="btn-menu-secondary">Details</a>
+                                <button class="btn-menu-secondary details-btn" onclick="openDetailsModal(this)">Details</button>
                             </div>
                         </div>
                     </div>
@@ -450,7 +456,7 @@
                             <p>Two eggs, Yukon potato, bacon, and American cheese on Texas toast or Tortilla</p>
                             <div class="menu-item-actions">
                                 <a href="https://online.skytab.com/s/breadnbrew" target="_blank" class="btn-menu-primary">Order Now</a>
-                                <a href="#" class="btn-menu-secondary">Details</a>
+                                <button class="btn-menu-secondary details-btn" onclick="openDetailsModal(this)">Details</button>
                             </div>
                         </div>
                     </div>
@@ -464,7 +470,7 @@
                             <p>Two scrambled eggs, lettuce, and tomato on tortilla wrap with sweet & spicy sauce</p>
                             <div class="menu-item-actions">
                                 <a href="https://online.skytab.com/s/breadnbrew" target="_blank" class="btn-menu-primary">Order Now</a>
-                                <a href="#" class="btn-menu-secondary">Details</a>
+                                <button class="btn-menu-secondary details-btn" onclick="openDetailsModal(this)">Details</button>
                             </div>
                         </div>
                     </div>
@@ -487,7 +493,7 @@
                             <p>Single or Double espresso with equal parts steamed milk</p>
                             <div class="menu-item-actions">
                                 <a href="https://online.skytab.com/s/breadnbrew" target="_blank" class="btn-menu-primary">Order Now</a>
-                                <a href="#" class="btn-menu-secondary">Details</a>
+                                <button class="btn-menu-secondary details-btn" onclick="openDetailsModal(this)">Details</button>
                             </div>
                         </div>
                     </div>
@@ -501,7 +507,7 @@
                             <p>Espresso with velvety steamed milk and light foam. Single or Double</p>
                             <div class="menu-item-actions">
                                 <a href="https://online.skytab.com/s/breadnbrew" target="_blank" class="btn-menu-primary">Order Now</a>
-                                <a href="#" class="btn-menu-secondary">Details</a>
+                                <button class="btn-menu-secondary details-btn" onclick="openDetailsModal(this)">Details</button>
                             </div>
                         </div>
                     </div>
@@ -515,7 +521,7 @@
                             <p>Espresso with steamed milk and creamy foam. Single or Double</p>
                             <div class="menu-item-actions">
                                 <a href="https://online.skytab.com/s/breadnbrew" target="_blank" class="btn-menu-primary">Order Now</a>
-                                <a href="#" class="btn-menu-secondary">Details</a>
+                                <button class="btn-menu-secondary details-btn" onclick="openDetailsModal(this)">Details</button>
                             </div>
                         </div>
                     </div>
@@ -529,7 +535,7 @@
                             <p>Smooth, cold-steeped coffee. Single or Double</p>
                             <div class="menu-item-actions">
                                 <a href="https://online.skytab.com/s/breadnbrew" target="_blank" class="btn-menu-primary">Order Now</a>
-                                <a href="#" class="btn-menu-secondary">Details</a>
+                                <button class="btn-menu-secondary details-btn" onclick="openDetailsModal(this)">Details</button>
                             </div>
                         </div>
                     </div>
@@ -543,7 +549,7 @@
                             <p>Bold espresso shots with hot water. Single or Double</p>
                             <div class="menu-item-actions">
                                 <a href="https://online.skytab.com/s/breadnbrew" target="_blank" class="btn-menu-primary">Order Now</a>
-                                <a href="#" class="btn-menu-secondary">Details</a>
+                                <button class="btn-menu-secondary details-btn" onclick="openDetailsModal(this)">Details</button>
                             </div>
                         </div>
                     </div>
@@ -557,7 +563,7 @@
                             <p>Espresso with steamed milk and rich chocolate. Single or Double</p>
                             <div class="menu-item-actions">
                                 <a href="https://online.skytab.com/s/breadnbrew" target="_blank" class="btn-menu-primary">Order Now</a>
-                                <a href="#" class="btn-menu-secondary">Details</a>
+                                <button class="btn-menu-secondary details-btn" onclick="openDetailsModal(this)">Details</button>
                             </div>
                         </div>
                     </div>
@@ -571,7 +577,7 @@
                             <p>Espresso with steamed milk and white chocolate. Single or Double</p>
                             <div class="menu-item-actions">
                                 <a href="https://online.skytab.com/s/breadnbrew" target="_blank" class="btn-menu-primary">Order Now</a>
-                                <a href="#" class="btn-menu-secondary">Details</a>
+                                <button class="btn-menu-secondary details-btn" onclick="openDetailsModal(this)">Details</button>
                             </div>
                         </div>
                     </div>
@@ -594,7 +600,7 @@
                             <p>Royal Milk Tea, Mango, Strawberry, Honeydew, Oreo, Ube, or Matcha</p>
                             <div class="menu-item-actions">
                                 <a href="https://online.skytab.com/s/breadnbrew" target="_blank" class="btn-menu-primary">Order Now</a>
-                                <a href="#" class="btn-menu-secondary">Details</a>
+                                <button class="btn-menu-secondary details-btn" onclick="openDetailsModal(this)">Details</button>
                             </div>
                         </div>
                     </div>
@@ -608,7 +614,7 @@
                             <p>Mango, Strawberry, Blueberry, or Tropical varieties</p>
                             <div class="menu-item-actions">
                                 <a href="https://online.skytab.com/s/breadnbrew" target="_blank" class="btn-menu-primary">Order Now</a>
-                                <a href="#" class="btn-menu-secondary">Details</a>
+                                <button class="btn-menu-secondary details-btn" onclick="openDetailsModal(this)">Details</button>
                             </div>
                         </div>
                     </div>
@@ -622,7 +628,7 @@
                             <p>Grapefruit, Strawberry, Lemon × Hibiscus, Mango × Passion, Peach × Yuju, or Dragonfruit Ade</p>
                             <div class="menu-item-actions">
                                 <a href="https://online.skytab.com/s/breadnbrew" target="_blank" class="btn-menu-primary">Order Now</a>
-                                <a href="#" class="btn-menu-secondary">Details</a>
+                                <button class="btn-menu-secondary details-btn" onclick="openDetailsModal(this)">Details</button>
                             </div>
                         </div>
                     </div>
@@ -636,7 +642,7 @@
                             <p>Dirty Chai, Hot Choco, White Choco, Matcha, or Dubai Matcha</p>
                             <div class="menu-item-actions">
                                 <a href="https://online.skytab.com/s/breadnbrew" target="_blank" class="btn-menu-primary">Order Now</a>
-                                <a href="#" class="btn-menu-secondary">Details</a>
+                                <button class="btn-menu-secondary details-btn" onclick="openDetailsModal(this)">Details</button>
                             </div>
                         </div>
                     </div>
@@ -659,7 +665,7 @@
                             <p>Strawberry, Strawberry × Matcha, Ube, Chocolate, Banana, or Choco Banana. Hot or Iced</p>
                             <div class="menu-item-actions">
                                 <a href="https://online.skytab.com/s/breadnbrew" target="_blank" class="btn-menu-primary">Order Now</a>
-                                <a href="#" class="btn-menu-secondary">Details</a>
+                                <button class="btn-menu-secondary details-btn" onclick="openDetailsModal(this)">Details</button>
                             </div>
                         </div>
                     </div>
@@ -673,7 +679,7 @@
                             <p>Alternative milk available: Oat, Soy, Almond, Skim, 2% • Add flavor syrups available</p>
                             <div class="menu-item-actions">
                                 <a href="https://online.skytab.com/s/breadnbrew" target="_blank" class="btn-menu-primary">Order Now</a>
-                                <a href="#" class="btn-menu-secondary">Details</a>
+                                <button class="btn-menu-secondary details-btn" onclick="openDetailsModal(this)">Details</button>
                             </div>
                         </div>
                     </div>
@@ -681,6 +687,19 @@
             </div>
         </div>
     </section>
+
+    <!-- Details Modal -->
+    <div id="detailsModal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeDetailsModal()">&times;</span>
+            <h2 id="modalTitle">Item Details</h2>
+            <p id="modalDescription"></p>
+            <div id="modalAllergens" style="margin-top: 1.5rem; padding-top: 1.5rem; border-top: 2px solid #e0e0e0;">
+                <h4>Allergens & Info:</h4>
+                <p id="allergensList" style="margin-top: 0.5rem;"></p>
+            </div>
+        </div>
+    </div>
 
     <!-- Order CTA -->
     <section class="order-cta-section">

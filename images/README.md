@@ -31,6 +31,6 @@ This folder contains all static images used throughout the Bread N' Brew website
 ## Current External Images
 The site currently uses images from:
 - Unsplash (hero images, backgrounds)
-- Builder.io CDN (product highlight cards)
+- Pexels (food photography)
 
 Consider replacing external images with locally hosted versions for better performance and control.

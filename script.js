@@ -1,30 +1,16 @@
-// Bread N' Brew - Modern Website JavaScript
+// Bread N' Brew - Optimized Website JavaScript
 
 document.addEventListener('DOMContentLoaded', function() {
     try {
-        // Initialize EmailJS
+        // Initialize Core Functionality
+        initNavigation();
+        initSmoothScrolling();
+        initMenuDropdown();
+        initContactForm();
         initEmailJS();
 
-        // Initialize Navigation
-        initNavigation();
-
-        // Smooth scrolling for anchor links
-        initSmoothScrolling();
-
-        // Initialize scroll animations
-        initScrollAnimations();
-
-        // Initialize contact form
-        initContactForm();
-
-        // Initialize menu dropdown
-        initMenuDropdown();
-
-        // Initialize scroll to top
-        initJumpToTop();
-
-        // Initialize banner animation
-        initBannerAnimation();
+        // Performance Optimized Animations
+        initScrollEffects();
 
         console.log('☕ Bread N\' Brew website initialized successfully!');
     } catch (error) {
@@ -32,42 +18,105 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
-// Jump to Top Functionality
-function initJumpToTop() {
+/**
+ * Combined Scroll Effects for Performance
+ * Uses a single scroll listener and requestAnimationFrame
+ */
+function initScrollEffects() {
+    const hero = document.querySelector('.hero');
     const jumpBtn = document.getElementById('jump-to-top');
+    const heroImages = document.querySelectorAll('.hero-image, .about-image');
 
-    if (jumpBtn) {
-        window.addEventListener('scroll', function() {
-            if (window.pageYOffset > 300) {
-                jumpBtn.classList.add('show');
+    // Initial State for Intersection Observer
+    initIntersectionObserver();
+
+    let ticking = false;
+    let lastScrollY = window.pageYOffset;
+
+    function updateScrollElements() {
+        const scrollY = window.pageYOffset;
+
+        // 1. Jump to Top Button Visibility
+        if (jumpBtn) {
+            if (scrollY > 300) {
+                if (!jumpBtn.classList.contains('show')) jumpBtn.classList.add('show');
             } else {
-                jumpBtn.classList.remove('show');
+                if (jumpBtn.classList.contains('show')) jumpBtn.classList.remove('show');
+            }
+        }
+
+        // 2. Banner Parallax (Hero Background)
+        if (hero) {
+            const translateY = scrollY * 0.3;
+            hero.style.backgroundPosition = `center ${translateY}px`;
+        }
+
+        // 3. Image Parallax (Hero/About Images)
+        heroImages.forEach(img => {
+            const rate = scrollY * 0.05;
+            const innerImg = img.querySelector('img');
+            if (innerImg) {
+                innerImg.style.transform = `translateY(${-rate}px)`;
             }
         });
 
+        lastScrollY = scrollY;
+        ticking = false;
+    }
+
+    window.addEventListener('scroll', function() {
+        if (!ticking) {
+            window.requestAnimationFrame(updateScrollElements);
+            ticking = true;
+        }
+    }, { passive: true });
+
+    // Handle Scroll to Top Click
+    if (jumpBtn) {
         jumpBtn.addEventListener('click', function() {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         });
     }
 }
 
-// Banner Scroll Animation
-function initBannerAnimation() {
-    const hero = document.querySelector('.hero');
-    if (hero) {
-        window.addEventListener('scroll', function() {
-            const scroll = window.pageYOffset;
-            // Create a parallax and subtle zoom effect
-            const scale = 1 + (scroll * 0.0005);
-            const translateY = scroll * 0.3;
-            hero.style.backgroundPosition = `center ${translateY}px`;
-            // Note: background-size doesn't support easy scaling via JS without changing the string,
-            // so we'll stick to background-position for parallax
+/**
+ * Intersection Observer for Entry Animations
+ * Optimized to use CSS classes instead of inline styles
+ */
+function initIntersectionObserver() {
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('reveal-active');
+                observer.unobserve(entry.target);
+            }
         });
-    }
+    }, observerOptions);
+
+    // Target elements for reveal animation
+    const animatedElements = document.querySelectorAll(`
+        .offering-card,
+        .commitment-card,
+        .hours-card,
+        .menu-item-card,
+        .contact-info-card,
+        .about-text,
+        .about-image,
+        .contact-form-wrapper,
+        .contact-info-wrapper,
+        .section-title,
+        .category-header
+    `);
+
+    animatedElements.forEach(element => {
+        element.classList.add('reveal-item');
+        observer.observe(element);
+    });
 }
 
 // Initialize EmailJS
@@ -113,61 +162,26 @@ function initNavigation() {
 // Smooth scrolling for anchor links
 function initSmoothScrolling() {
     const links = document.querySelectorAll('a[href^="#"]');
-    
+
     links.forEach(link => {
         link.addEventListener('click', function(e) {
             const href = this.getAttribute('href');
-            if (href === '#') return;
-            
+            if (href === '#' || href.length <= 1) return;
+
             e.preventDefault();
             const targetId = href.substring(1);
             const targetElement = document.getElementById(targetId);
-            
+
             if (targetElement) {
-                targetElement.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
+                const navHeight = document.querySelector('.navbar').offsetHeight;
+                const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - navHeight;
+
+                window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'smooth'
                 });
             }
         });
-    });
-}
-
-// Intersection Observer for scroll animations
-function initScrollAnimations() {
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -100px 0px'
-    };
-
-    const observer = new IntersectionObserver(function(entries) {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateY(0)';
-                observer.unobserve(entry.target);
-            }
-        });
-    }, observerOptions);
-
-    // Observe elements for animation
-    const animatedElements = document.querySelectorAll(`
-        .offering-card,
-        .commitment-card,
-        .hours-card,
-        .menu-item,
-        .contact-info-card,
-        .about-text,
-        .about-image,
-        .contact-form-wrapper,
-        .contact-info-wrapper
-    `);
-
-    animatedElements.forEach(element => {
-        element.style.opacity = '0';
-        element.style.transform = 'translateY(30px)';
-        element.style.transition = 'all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
-        observer.observe(element);
     });
 }
 
@@ -281,18 +295,8 @@ style.textContent = `
 `;
 document.head.appendChild(style);
 
-// Parallax effect for images on scroll
-window.addEventListener('scroll', function() {
-    const scrolled = window.pageYOffset;
-    const heroImages = document.querySelectorAll('.hero-image, .about-image');
-    
-    heroImages.forEach(img => {
-        const rate = scrolled * 0.5;
-        if (img.querySelector('img')) {
-            img.style.transform = `translateY(${-rate * 0.1}px)`;
-        }
-    });
-});
+// Parallax effect for images on scroll (Deprecated: Handled in initScrollEffects for performance)
+// function deprecatedParallax() { ... }
 
 // Enhance button hover effects
 const buttons = document.querySelectorAll('.btn-primary, .btn-secondary, .btn-tertiary');

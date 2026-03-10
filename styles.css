@@ -1248,6 +1248,24 @@ a:hover {
     }
 }
 
+/* ==================== REVEAL ANIMATIONS ==================== */
+.reveal-item {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    will-change: transform, opacity;
+}
+
+.reveal-active {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+}
+
+/* Optimize scroll performance */
+.hero, .hero-image img, .about-image img {
+    will-change: background-position, transform;
+}
+
 /* ==================== RESPONSIVE DESIGN ==================== */
 @media (max-width: 1024px) {
     .hero {

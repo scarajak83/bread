@@ -3,228 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Menu - Bread N' Br☕︎w</title>
+    <title>Menu - Bread N' Brew</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
-    <style>
-        /* Menu-specific styles */
-        .menu-section {
-            min-height: 100vh;
-            padding: 100px 0 40px;
-            background: #FAF9F6;
-        }
-
-        .menu-header {
-            text-align: center;
-            margin-bottom: 2rem;
-            padding: 0 2rem;
-        }
-
-        .menu-header h1 {
-            color: #2A2A2A;
-            margin-bottom: 1rem;
-        }
-
-        .menu-header p {
-            font-size: 1.1rem;
-            color: #6B6B6B;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .menu-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 1rem;
-            position: relative;
-        }
-
-        .menu-iframe-wrapper {
-            background: white;
-            border-radius: 12px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-            position: relative;
-            width: 100%;
-            height: 80vh;
-            min-height: 600px;
-        }
-
-        .menu-iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-            border-radius: 12px;
-        }
-
-        .loading-indicator {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            text-align: center;
-            color: #6B6B6B;
-            z-index: 1;
-        }
-
-        .loading-spinner {
-            width: 50px;
-            height: 50px;
-            border: 3px solid #f3f3f3;
-            border-top: 3px solid #E91E63;
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-            margin: 0 auto 1rem;
-        }
-
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        .menu-fallback {
-            display: none;
-            text-align: center;
-            padding: 3rem 2rem;
-            background: white;
-            border-radius: 12px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-            margin-top: 2rem;
-        }
-
-        .menu-fallback h3 {
-            color: #2A2A2A;
-            margin-bottom: 1rem;
-        }
-
-        .menu-fallback p {
-            color: #6B6B6B;
-            margin-bottom: 2rem;
-        }
-
-        .order-buttons {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-            align-items: center;
-            margin-top: 2rem;
-        }
-
-        .order-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 1rem 2rem;
-            background: #E91E63;
-            color: white;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            min-height: 44px;
-        }
-
-        .order-btn:hover {
-            background: #C2185B;
-            transform: translateY(-2px);
-            color: white;
-        }
-
-        .location-info {
-            margin-top: 3rem;
-            padding: 2rem;
-            background: white;
-            border-radius: 12px;
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
-            text-align: center;
-        }
-
-        .location-info h3 {
-            color: #2A2A2A;
-            margin-bottom: 1rem;
-        }
-
-        .address-link {
-            color: #E91E63;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-
-        .address-link:hover {
-            color: #C2185B;
-            text-decoration: underline;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .menu-section {
-                padding: 80px 0 20px;
-            }
-
-            .menu-header h1 {
-                font-size: 2.5rem;
-            }
-
-            .menu-header p {
-                font-size: 1rem;
-            }
-
-            .menu-iframe-wrapper {
-                height: 70vh;
-                min-height: 500px;
-                border-radius: 8px;
-            }
-
-            .menu-container {
-                padding: 0 0.5rem;
-            }
-
-            .location-info {
-                margin-top: 2rem;
-                padding: 1.5rem;
-            }
-
-            .order-buttons {
-                flex-direction: column;
-                gap: 0.8rem;
-            }
-
-            .order-btn {
-                padding: 0.8rem 1.5rem;
-                font-size: 0.9rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .menu-header {
-                padding: 0 1rem;
-            }
-
-            .menu-iframe-wrapper {
-                height: 65vh;
-                min-height: 450px;
-            }
-        }
-
-        /* Tablet specific adjustments */
-        @media (min-width: 769px) and (max-width: 1024px) {
-            .menu-iframe-wrapper {
-                height: 75vh;
-                min-height: 550px;
-            }
-        }
-
-        /* Large screen optimization */
-        @media (min-width: 1400px) {
-            .menu-iframe-wrapper {
-                height: 85vh;
-                min-height: 700px;
-            }
-        }
-    </style>
 </head>
 <body>
     <!-- Navigation -->
@@ -232,15 +15,13 @@
         <div class="nav-container">
             <div class="nav-logo">
                 <h1>Bread N' Br☕︎w</h1>
-                <span>COFFEE • BREAD • PATISSERIES</span>
+                <span class="nav-tagline">COFFEE • FRESH MEALS • PATISSERIES</span>
             </div>
             <ul class="nav-menu">
-                <li><a href="/">Home</a></li>
+                <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="menu.html" class="nav-active">Menu</a></li>
-                <li><a href="catering.html">Catering</a></li>
                 <li><a href="contact.html">Contact</a></li>
-                <li class="nav-order"><a href="https://online.skytab.com/s/breadnbrew" target="_blank" class="btn btn-primary nav-order-btn">Order Online</a></li>
             </ul>
             <div class="nav-toggle">
                 <span></span>
@@ -250,164 +31,721 @@
         </div>
     </nav>
 
-    <!-- Menu Section -->
-    <section class="menu-section">
-        <div class="menu-container">
-            <div class="menu-header">
-                <h1>Our Menu</h1>
-                <p>Explore our carefully crafted selection of artisanal breads, premium coffee, and exquisite pastries. Order online for pickup or delivery!</p>
-            </div>
+    <!-- Page Hero -->
+    <section class="page-hero menu-hero">
+        <div class="page-hero-content">
+            <h1>Our Menu</h1>
+            <p>All Day • Fresh • Delicious</p>
+        </div>
+    </section>
 
-            <div class="menu-iframe-wrapper">
-                <div class="loading-indicator" id="loadingIndicator">
-                    <div class="loading-spinner"></div>
-                    <p>Loading our delicious menu...</p>
-                </div>
-                <iframe 
-                    src="https://online.skytab.com/s/breadnbrew" 
-                    class="menu-iframe"
-                    id="menuIframe"
-                    title="Bread N' Brew Online Menu"
-                    loading="lazy"
-                    onload="hideLoading()"
-                    onerror="showFallback()">
-                </iframe>
-            </div>
-
-            <div class="menu-fallback" id="menuFallback">
-                <h3>🍞 Menu Temporarily Unavailable</h3>
-                <p>We're having trouble loading our menu right now, but you can still place your order directly!</p>
-                <div class="order-buttons">
-                    <a href="https://online.skytab.com/s/breadnbrew" target="_blank" class="order-btn">
-                        🛒 Order Online Now
-                    </a>
-                    <a href="tel:+19089330123" class="order-btn" style="background: #4CAF50;">
-                        📞 Call to Order: (908) 933-0123
-                    </a>
+    <!-- Menu Navigation Dropdown -->
+    <div class="menu-nav-sticky">
+        <div class="container">
+            <div class="menu-dropdown-wrapper">
+                <button class="menu-dropdown-btn">
+                    <span>Jump to Category</span>
+                    <span class="dropdown-arrow">▼</span>
+                </button>
+                <div class="menu-dropdown-content">
+                    <a href="#sandwiches" class="menu-dropdown-link">Sandwiches</a>
+                    <a href="#salads" class="menu-dropdown-link">Salads</a>
+                    <a href="#speciality" class="menu-dropdown-link">Speciality</a>
+                    <a href="#breakfast" class="menu-dropdown-link">Breakfast</a>
+                    <a href="#coffee" class="menu-dropdown-link">Coffee</a>
+                    <a href="#bubble-tea" class="menu-dropdown-link">Bubble Tea</a>
+                    <a href="#non-caff" class="menu-dropdown-link">Non-Caffeinated</a>
                 </div>
             </div>
+        </div>
+    </div>
 
-            <div class="location-info">
-                <h3>📍 Visit Our Location</h3>
-                <p>
-                    <a href="https://maps.google.com/?q=Bread+N'+Brew,+Springfield+Avenue,+Berkeley+Heights,+NJ" 
-                       target="_blank" 
-                       class="address-link"
-                       onclick="openGoogleMaps()">
-                        Bread N' Brew<br>
-                        Springfield Avenue<br>
-                        Berkeley Heights, NJ
-                    </a>
-                </p>
-                <p style="margin-top: 1rem; color: #6B6B6B;">
-                    <strong>Hours:</strong> Mon-Fri: 7:00 AM - 8:00 PM | Sat-Sun: 8:00 AM - 9:00 PM
-                </p>
+    <!-- Menu Content -->
+    <section class="menu-content">
+        <div class="container">
+            <!-- SANDWICHES -->
+            <div id="sandwiches" class="menu-category">
+                <div class="category-header">
+                    <h2>Sandwiches</h2>
+                    <p>Crafted with fresh, artisan ingredients</p>
+                </div>
+                <div class="menu-grid">
+                    <div class="menu-item-card">
+                        <div class="menu-item-img">
+                            <img src="https://images.pexels.com/photos/106343/pexels-photo-106343.jpeg" alt="Grilled Chicken Sandwich">
+                        </div>
+                        <div class="menu-item-content">
+                            <h3>Grilled Chicken</h3>
+                            <p>Seasoned chicken breast, baby spinach, tomato, and chipotle aioli on sourdough bread</p>
+                            <div class="menu-item-actions">
+                                <a href="https://online.skytab.com/s/breadnbrew" target="_blank" class="btn-menu-primary">Order Now</a>
+                                <button class="btn-menu-secondary details-btn" onclick="openDetailsModal(this)">Details</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="menu-item-card">
+                        <div class="menu-item-img">
+                            <img src="https://images.pexels.com/photos/27380077/pexels-photo-27380077.jpeg" alt="Prosciutto Sandwich">
+                        </div>
+                        <div class="menu-item-content">
+                            <h3>Prosciutto</h3>
+                            <p>Whipped goat cheese, prosciutto, fig paste, and baby arugula on sourdough bread</p>
+                            <div class="menu-item-actions">
+                                <a href="https://online.skytab.com/s/breadnbrew" target="_blank" class="btn-menu-primary">Order Now</a>
+                                <button class="btn-menu-secondary details-btn" onclick="openDetailsModal(this)">Details</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="menu-item-card">
+                        <div class="menu-item-img">
+                            <img src="https://images.pexels.com/photos/27380077/pexels-photo-27380077.jpeg" alt="Mortadella Sandwich">
+                        </div>
+                        <div class="menu-item-content">
+                            <h3>Mortadella</h3>
+                            <p>Mozzarella, mortadella, and baby arugula on sourdough bread</p>
+                            <div class="menu-item-actions">
+                                <a href="https://online.skytab.com/s/breadnbrew" target="_blank" class="btn-menu-primary">Order Now</a>
+                                <button class="btn-menu-secondary details-btn" onclick="openDetailsModal(this)">Details</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="menu-item-card">
+                        <div class="menu-item-img">
+                            <img src="https://images.pexels.com/photos/106343/pexels-photo-106343.jpeg" alt="Classic Turkey Sandwich">
+                        </div>
+                        <div class="menu-item-content">
+                            <h3>Classic Turkey</h3>
+                            <p>Sliced turkey, Swiss or Provolone cheese, lettuce, and tomato on sourdough bread</p>
+                            <div class="menu-item-actions">
+                                <a href="https://online.skytab.com/s/breadnbrew" target="_blank" class="btn-menu-primary">Order Now</a>
+                                <button class="btn-menu-secondary details-btn" onclick="openDetailsModal(this)">Details</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="menu-item-card">
+                        <div class="menu-item-img">
+                            <img src="https://images.pexels.com/photos/4491396/pexels-photo-4491396.jpeg" alt="Tuna Salad Sandwich">
+                        </div>
+                        <div class="menu-item-content">
+                            <h3>Tuna Salad</h3>
+                            <p>Chunk of tuna, mayonnaise, chopped celery, onion, and avocado on sourdough bread</p>
+                            <div class="menu-item-actions">
+                                <a href="https://online.skytab.com/s/breadnbrew" target="_blank" class="btn-menu-primary">Order Now</a>
+                                <button class="btn-menu-secondary details-btn" onclick="openDetailsModal(this)">Details</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="menu-item-card">
+                        <div class="menu-item-img">
+                            <img src="https://images.pexels.com/photos/106343/pexels-photo-106343.jpeg" alt="Caesar Chicken Wrap">
+                        </div>
+                        <div class="menu-item-content">
+                            <h3>Caesar Chicken Wrap</h3>
+                            <p>Seasoned chicken and crisp lettuce on a warm tortilla</p>
+                            <div class="menu-item-actions">
+                                <a href="https://online.skytab.com/s/breadnbrew" target="_blank" class="btn-menu-primary">Order Now</a>
+                                <button class="btn-menu-secondary details-btn" onclick="openDetailsModal(this)">Details</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="menu-item-card">
+                        <div class="menu-item-img">
+                            <img src="https://images.pexels.com/photos/27380077/pexels-photo-27380077.jpeg" alt="Grilled Cheese">
+                        </div>
+                        <div class="menu-item-content">
+                            <h3>Grilled Cheese</h3>
+                            <p>American, Swiss, or cheddar cheese on sourdough bread</p>
+                            <div class="menu-item-actions">
+                                <a href="https://online.skytab.com/s/breadnbrew" target="_blank" class="btn-menu-primary">Order Now</a>
+                                <button class="btn-menu-secondary details-btn" onclick="openDetailsModal(this)">Details</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="menu-item-card">
+                        <div class="menu-item-img">
+                            <img src="https://images.pexels.com/photos/106343/pexels-photo-106343.jpeg" alt="Turkey BLT">
+                        </div>
+                        <div class="menu-item-content">
+                            <h3>Turkey BLT</h3>
+                            <p>Turkey, bacon, lettuce, and tomato on sourdough bread</p>
+                            <div class="menu-item-actions">
+                                <a href="https://online.skytab.com/s/breadnbrew" target="_blank" class="btn-menu-primary">Order Now</a>
+                                <button class="btn-menu-secondary details-btn" onclick="openDetailsModal(this)">Details</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="menu-item-card">
+                        <div class="menu-item-img">
+                            <img src="https://images.pexels.com/photos/3070968/pexels-photo-3070968.jpeg" alt="Soup of the Day">
+                        </div>
+                        <div class="menu-item-content">
+                            <h3>Soup of the Day</h3>
+                            <p>Fresh, homemade daily</p>
+                            <div class="menu-item-actions">
+                                <a href="https://online.skytab.com/s/breadnbrew" target="_blank" class="btn-menu-primary">Order Now</a>
+                                <button class="btn-menu-secondary details-btn" onclick="openDetailsModal(this)">Details</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
+
+            <!-- SALADS -->
+            <div id="salads" class="menu-category">
+                <div class="category-header">
+                    <h2>Salads</h2>
+                    <p>Fresh and healthy options</p>
+                </div>
+                <div class="menu-grid">
+                    <div class="menu-item-card">
+                        <div class="menu-item-img">
+                            <img src="https://images.pexels.com/photos/3070968/pexels-photo-3070968.jpeg" alt="Spinach Salad">
+                        </div>
+                        <div class="menu-item-content">
+                            <h3>Spinach Salad</h3>
+                            <p>Baby spinach, cucumbers, tomatoes, red onions, feta cheese, and kalamata olives</p>
+                            <div class="menu-item-actions">
+                                <a href="https://online.skytab.com/s/breadnbrew" target="_blank" class="btn-menu-primary">Order Now</a>
+                                <button class="btn-menu-secondary details-btn" onclick="openDetailsModal(this)">Details</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="menu-item-card">
+                        <div class="menu-item-img">
+                            <img src="https://images.pexels.com/photos/3070968/pexels-photo-3070968.jpeg" alt="Cobb Salad">
+                        </div>
+                        <div class="menu-item-content">
+                            <h3>Cobb Salad</h3>
+                            <p>Mix greens, baby spinach, boiled eggs, red onion, cherry tomato, bacon, avocado</p>
+                            <div class="menu-item-actions">
+                                <a href="https://online.skytab.com/s/breadnbrew" target="_blank" class="btn-menu-primary">Order Now</a>
+                                <button class="btn-menu-secondary details-btn" onclick="openDetailsModal(this)">Details</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="menu-item-card">
+                        <div class="menu-item-img">
+                            <img src="https://images.pexels.com/photos/3070968/pexels-photo-3070968.jpeg" alt="Greek Salad">
+                        </div>
+                        <div class="menu-item-content">
+                            <h3>Greek Salad</h3>
+                            <p>Lettuce and mixed greens, feta cheese, fresh green peppers, cherry tomatoes, cucumbers, and red onion</p>
+                            <div class="menu-item-actions">
+                                <a href="https://online.skytab.com/s/breadnbrew" target="_blank" class="btn-menu-primary">Order Now</a>
+                                <button class="btn-menu-secondary details-btn" onclick="openDetailsModal(this)">Details</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="menu-item-card">
+                        <div class="menu-item-img">
+                            <img src="https://images.pexels.com/photos/3070968/pexels-photo-3070968.jpeg" alt="Avocado Salad">
+                        </div>
+                        <div class="menu-item-content">
+                            <h3>Avocado Salad</h3>
+                            <p>Avocado, cherry tomatoes, cucumbers, cilantro, and red onion</p>
+                            <div class="menu-item-actions">
+                                <a href="https://online.skytab.com/s/breadnbrew" target="_blank" class="btn-menu-primary">Order Now</a>
+                                <button class="btn-menu-secondary details-btn" onclick="openDetailsModal(this)">Details</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SPECIALITY -->
+            <div id="speciality" class="menu-category">
+                <div class="category-header">
+                    <h2>Speciality</h2>
+                    <p>Chef's special creations</p>
+                </div>
+                <div class="menu-grid">
+                    <div class="menu-item-card">
+                        <div class="menu-item-img">
+                            <img src="https://images.pexels.com/photos/106343/pexels-photo-106343.jpeg" alt="Chicken Empanada">
+                        </div>
+                        <div class="menu-item-content">
+                            <h3>Chicken Empanada</h3>
+                            <p>Homemade empanada with your choice of spicy or mild sauce</p>
+                            <div class="menu-item-actions">
+                                <a href="https://online.skytab.com/s/breadnbrew" target="_blank" class="btn-menu-primary">Order Now</a>
+                                <button class="btn-menu-secondary details-btn" onclick="openDetailsModal(this)">Details</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="menu-item-card">
+                        <div class="menu-item-img">
+                            <img src="https://images.pexels.com/photos/106343/pexels-photo-106343.jpeg" alt="Beef Tacos">
+                        </div>
+                        <div class="menu-item-content">
+                            <h3>Beef Tacos</h3>
+                            <p>Homemade seasoned beef garnished with fresh onion, cilantro, avocado</p>
+                            <div class="menu-item-actions">
+                                <a href="https://online.skytab.com/s/breadnbrew" target="_blank" class="btn-menu-primary">Order Now</a>
+                                <button class="btn-menu-secondary details-btn" onclick="openDetailsModal(this)">Details</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="menu-item-card">
+                        <div class="menu-item-img">
+                            <img src="https://images.pexels.com/photos/106343/pexels-photo-106343.jpeg" alt="Chicken Tacos">
+                        </div>
+                        <div class="menu-item-content">
+                            <h3>Chicken Tacos</h3>
+                            <p>Homemade seasoned chicken garnished with fresh onion, cilantro, avocado</p>
+                            <div class="menu-item-actions">
+                                <a href="https://online.skytab.com/s/breadnbrew" target="_blank" class="btn-menu-primary">Order Now</a>
+                                <button class="btn-menu-secondary details-btn" onclick="openDetailsModal(this)">Details</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="menu-item-card">
+                        <div class="menu-item-img">
+                            <img src="https://images.pexels.com/photos/4109532/pexels-photo-4109532.jpeg" alt="Falafel Wrap">
+                        </div>
+                        <div class="menu-item-content">
+                            <h3>Falafel Wrap</h3>
+                            <p>Chickpeas, cilantro, onions, and garlic, topped with pickle and tahini sauce</p>
+                            <div class="menu-item-actions">
+                                <a href="https://online.skytab.com/s/breadnbrew" target="_blank" class="btn-menu-primary">Order Now</a>
+                                <button class="btn-menu-secondary details-btn" onclick="openDetailsModal(this)">Details</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="menu-item-card">
+                        <div class="menu-item-img">
+                            <img src="https://images.pexels.com/photos/106343/pexels-photo-106343.jpeg" alt="French Fries">
+                        </div>
+                        <div class="menu-item-content">
+                            <h3>French Fries</h3>
+                            <p>Crispy, golden perfection</p>
+                            <div class="menu-item-actions">
+                                <a href="https://online.skytab.com/s/breadnbrew" target="_blank" class="btn-menu-primary">Order Now</a>
+                                <button class="btn-menu-secondary details-btn" onclick="openDetailsModal(this)">Details</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- BREAKFAST -->
+            <div id="breakfast" class="menu-category">
+                <div class="category-header">
+                    <h2>Breakfast / All Day</h2>
+                    <p>Served anytime, made fresh</p>
+                </div>
+                <div class="menu-grid">
+                    <div class="menu-item-card">
+                        <div class="menu-item-img">
+                            <img src="https://images.pexels.com/photos/106343/pexels-photo-106343.jpeg" alt="Italian Sausage Basil Toast">
+                        </div>
+                        <div class="menu-item-content">
+                            <h3>Italian Sausage Basil Toast</h3>
+                            <p>Fresh Italian sausage and basil purée on Texas toast</p>
+                            <div class="menu-item-actions">
+                                <a href="https://online.skytab.com/s/breadnbrew" target="_blank" class="btn-menu-primary">Order Now</a>
+                                <button class="btn-menu-secondary details-btn" onclick="openDetailsModal(this)">Details</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="menu-item-card">
+                        <div class="menu-item-img">
+                            <img src="https://images.pexels.com/photos/4109532/pexels-photo-4109532.jpeg" alt="Quiche">
+                        </div>
+                        <div class="menu-item-content">
+                            <h3>Quiche</h3>
+                            <p>Choose veggie or bacon & Italian sausage, served with fresh fruit</p>
+                            <div class="menu-item-actions">
+                                <a href="https://online.skytab.com/s/breadnbrew" target="_blank" class="btn-menu-primary">Order Now</a>
+                                <button class="btn-menu-secondary details-btn" onclick="openDetailsModal(this)">Details</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="menu-item-card">
+                        <div class="menu-item-img">
+                            <img src="https://images.pexels.com/photos/4109532/pexels-photo-4109532.jpeg" alt="Frittata">
+                        </div>
+                        <div class="menu-item-content">
+                            <h3>Frittata</h3>
+                            <p>Eggs, baby spinach, grape tomatoes, and feta cheese, served with fresh fruit</p>
+                            <div class="menu-item-actions">
+                                <a href="https://online.skytab.com/s/breadnbrew" target="_blank" class="btn-menu-primary">Order Now</a>
+                                <button class="btn-menu-secondary details-btn" onclick="openDetailsModal(this)">Details</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="menu-item-card">
+                        <div class="menu-item-img">
+                            <img src="https://images.pexels.com/photos/4109532/pexels-photo-4109532.jpeg" alt="Avocado Toast">
+                        </div>
+                        <div class="menu-item-content">
+                            <h3>Avocado Toast</h3>
+                            <p>Ripe avocado and two poached eggs on sourdough bread, served with fresh fruit</p>
+                            <div class="menu-item-actions">
+                                <a href="https://online.skytab.com/s/breadnbrew" target="_blank" class="btn-menu-primary">Order Now</a>
+                                <button class="btn-menu-secondary details-btn" onclick="openDetailsModal(this)">Details</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="menu-item-card">
+                        <div class="menu-item-img">
+                            <img src="https://images.pexels.com/photos/821398/pexels-photo-821398.jpeg" alt="Fluffy Pancakes">
+                        </div>
+                        <div class="menu-item-content">
+                            <h3>Fluffy Pancakes</h3>
+                            <p>Golden, buttermilk pancakes served with fresh fruit</p>
+                            <div class="menu-item-actions">
+                                <a href="https://online.skytab.com/s/breadnbrew" target="_blank" class="btn-menu-primary">Order Now</a>
+                                <button class="btn-menu-secondary details-btn" onclick="openDetailsModal(this)">Details</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="menu-item-card">
+                        <div class="menu-item-img">
+                            <img src="https://images.pexels.com/photos/821398/pexels-photo-821398.jpeg" alt="Homemade Oatmeal">
+                        </div>
+                        <div class="menu-item-content">
+                            <h3>Homemade Oatmeal</h3>
+                            <p>Creamy, comforting oatmeal made fresh daily with fresh fruit on top</p>
+                            <div class="menu-item-actions">
+                                <a href="https://online.skytab.com/s/breadnbrew" target="_blank" class="btn-menu-primary">Order Now</a>
+                                <button class="btn-menu-secondary details-btn" onclick="openDetailsModal(this)">Details</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="menu-item-card">
+                        <div class="menu-item-img">
+                            <img src="https://images.pexels.com/photos/4109532/pexels-photo-4109532.jpeg" alt="Egg Sandwich">
+                        </div>
+                        <div class="menu-item-content">
+                            <h3>Egg Sandwich</h3>
+                            <p>Two eggs with American cheese on Texas Toast</p>
+                            <div class="menu-item-actions">
+                                <a href="https://online.skytab.com/s/breadnbrew" target="_blank" class="btn-menu-primary">Order Now</a>
+                                <button class="btn-menu-secondary details-btn" onclick="openDetailsModal(this)">Details</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="menu-item-card">
+                        <div class="menu-item-img">
+                            <img src="https://images.pexels.com/photos/4109532/pexels-photo-4109532.jpeg" alt="Smashed Potato Egg Wrap">
+                        </div>
+                        <div class="menu-item-content">
+                            <h3>Smashed Potato Egg Wrap</h3>
+                            <p>Two eggs, Yukon potato, bacon, and American cheese on Texas toast or Tortilla</p>
+                            <div class="menu-item-actions">
+                                <a href="https://online.skytab.com/s/breadnbrew" target="_blank" class="btn-menu-primary">Order Now</a>
+                                <button class="btn-menu-secondary details-btn" onclick="openDetailsModal(this)">Details</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="menu-item-card">
+                        <div class="menu-item-img">
+                            <img src="https://images.pexels.com/photos/106343/pexels-photo-106343.jpeg" alt="Egg Tacos on Toast">
+                        </div>
+                        <div class="menu-item-content">
+                            <h3>Egg Tacos on Toast</h3>
+                            <p>Two scrambled eggs, lettuce, and tomato on tortilla wrap with sweet & spicy sauce</p>
+                            <div class="menu-item-actions">
+                                <a href="https://online.skytab.com/s/breadnbrew" target="_blank" class="btn-menu-primary">Order Now</a>
+                                <button class="btn-menu-secondary details-btn" onclick="openDetailsModal(this)">Details</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- COFFEE -->
+            <div id="coffee" class="menu-category">
+                <div class="category-header">
+                    <h2>Classic Coffee</h2>
+                    <p>Artisan-roasted and perfectly crafted</p>
+                </div>
+                <div class="menu-grid">
+                    <div class="menu-item-card">
+                        <div class="menu-item-img">
+                            <img src="https://images.pexels.com/photos/302899/pexels-photo-302899.jpeg" alt="Cortado">
+                        </div>
+                        <div class="menu-item-content">
+                            <h3>Cortado</h3>
+                            <p>Single or Double espresso with equal parts steamed milk</p>
+                            <div class="menu-item-actions">
+                                <a href="https://online.skytab.com/s/breadnbrew" target="_blank" class="btn-menu-primary">Order Now</a>
+                                <button class="btn-menu-secondary details-btn" onclick="openDetailsModal(this)">Details</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="menu-item-card">
+                        <div class="menu-item-img">
+                            <img src="https://images.pexels.com/photos/302899/pexels-photo-302899.jpeg" alt="Cappuccino">
+                        </div>
+                        <div class="menu-item-content">
+                            <h3>Cappuccino</h3>
+                            <p>Espresso with velvety steamed milk and light foam. Single or Double</p>
+                            <div class="menu-item-actions">
+                                <a href="https://online.skytab.com/s/breadnbrew" target="_blank" class="btn-menu-primary">Order Now</a>
+                                <button class="btn-menu-secondary details-btn" onclick="openDetailsModal(this)">Details</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="menu-item-card">
+                        <div class="menu-item-img">
+                            <img src="https://images.pexels.com/photos/302899/pexels-photo-302899.jpeg" alt="Latte">
+                        </div>
+                        <div class="menu-item-content">
+                            <h3>Latte</h3>
+                            <p>Espresso with steamed milk and creamy foam. Single or Double</p>
+                            <div class="menu-item-actions">
+                                <a href="https://online.skytab.com/s/breadnbrew" target="_blank" class="btn-menu-primary">Order Now</a>
+                                <button class="btn-menu-secondary details-btn" onclick="openDetailsModal(this)">Details</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="menu-item-card">
+                        <div class="menu-item-img">
+                            <img src="https://images.pexels.com/photos/302899/pexels-photo-302899.jpeg" alt="Cold Brew">
+                        </div>
+                        <div class="menu-item-content">
+                            <h3>Cold Brew</h3>
+                            <p>Smooth, cold-steeped coffee. Single or Double</p>
+                            <div class="menu-item-actions">
+                                <a href="https://online.skytab.com/s/breadnbrew" target="_blank" class="btn-menu-primary">Order Now</a>
+                                <button class="btn-menu-secondary details-btn" onclick="openDetailsModal(this)">Details</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="menu-item-card">
+                        <div class="menu-item-img">
+                            <img src="https://images.pexels.com/photos/302899/pexels-photo-302899.jpeg" alt="Americano">
+                        </div>
+                        <div class="menu-item-content">
+                            <h3>Americano</h3>
+                            <p>Bold espresso shots with hot water. Single or Double</p>
+                            <div class="menu-item-actions">
+                                <a href="https://online.skytab.com/s/breadnbrew" target="_blank" class="btn-menu-primary">Order Now</a>
+                                <button class="btn-menu-secondary details-btn" onclick="openDetailsModal(this)">Details</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="menu-item-card">
+                        <div class="menu-item-img">
+                            <img src="https://images.pexels.com/photos/302899/pexels-photo-302899.jpeg" alt="Mocha">
+                        </div>
+                        <div class="menu-item-content">
+                            <h3>Mocha</h3>
+                            <p>Espresso with steamed milk and rich chocolate. Single or Double</p>
+                            <div class="menu-item-actions">
+                                <a href="https://online.skytab.com/s/breadnbrew" target="_blank" class="btn-menu-primary">Order Now</a>
+                                <button class="btn-menu-secondary details-btn" onclick="openDetailsModal(this)">Details</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="menu-item-card">
+                        <div class="menu-item-img">
+                            <img src="https://images.pexels.com/photos/302899/pexels-photo-302899.jpeg" alt="White Mocha">
+                        </div>
+                        <div class="menu-item-content">
+                            <h3>White Mocha</h3>
+                            <p>Espresso with steamed milk and white chocolate. Single or Double</p>
+                            <div class="menu-item-actions">
+                                <a href="https://online.skytab.com/s/breadnbrew" target="_blank" class="btn-menu-primary">Order Now</a>
+                                <button class="btn-menu-secondary details-btn" onclick="openDetailsModal(this)">Details</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- BUBBLE TEA & MORE -->
+            <div id="bubble-tea" class="menu-category">
+                <div class="category-header">
+                    <h2>Bubble Tea & Beverages</h2>
+                    <p>Refreshing and delicious</p>
+                </div>
+                <div class="menu-grid">
+                    <div class="menu-item-card">
+                        <div class="menu-item-img">
+                            <img src="https://images.pexels.com/photos/33166521/pexels-photo-33166521.jpeg" alt="Bubble Tea">
+                        </div>
+                        <div class="menu-item-content">
+                            <h3>Bubble Tea</h3>
+                            <p>Royal Milk Tea, Mango, Strawberry, Honeydew, Oreo, Ube, or Matcha</p>
+                            <div class="menu-item-actions">
+                                <a href="https://online.skytab.com/s/breadnbrew" target="_blank" class="btn-menu-primary">Order Now</a>
+                                <button class="btn-menu-secondary details-btn" onclick="openDetailsModal(this)">Details</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="menu-item-card">
+                        <div class="menu-item-img">
+                            <img src="https://images.pexels.com/photos/33166521/pexels-photo-33166521.jpeg" alt="Smoothies">
+                        </div>
+                        <div class="menu-item-content">
+                            <h3>Smoothies</h3>
+                            <p>Mango, Strawberry, Blueberry, or Tropical varieties</p>
+                            <div class="menu-item-actions">
+                                <a href="https://online.skytab.com/s/breadnbrew" target="_blank" class="btn-menu-primary">Order Now</a>
+                                <button class="btn-menu-secondary details-btn" onclick="openDetailsModal(this)">Details</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="menu-item-card">
+                        <div class="menu-item-img">
+                            <img src="https://images.pexels.com/photos/33166521/pexels-photo-33166521.jpeg" alt="Refreshers">
+                        </div>
+                        <div class="menu-item-content">
+                            <h3>Refreshers</h3>
+                            <p>Grapefruit, Strawberry, Lemon × Hibiscus, Mango × Passion, Peach × Yuju, or Dragonfruit Ade</p>
+                            <div class="menu-item-actions">
+                                <a href="https://online.skytab.com/s/breadnbrew" target="_blank" class="btn-menu-primary">Order Now</a>
+                                <button class="btn-menu-secondary details-btn" onclick="openDetailsModal(this)">Details</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="menu-item-card">
+                        <div class="menu-item-img">
+                            <img src="https://images.pexels.com/photos/33166521/pexels-photo-33166521.jpeg" alt="Tea & Chocolate">
+                        </div>
+                        <div class="menu-item-content">
+                            <h3>Tea & Chocolate</h3>
+                            <p>Dirty Chai, Hot Choco, White Choco, Matcha, or Dubai Matcha</p>
+                            <div class="menu-item-actions">
+                                <a href="https://online.skytab.com/s/breadnbrew" target="_blank" class="btn-menu-primary">Order Now</a>
+                                <button class="btn-menu-secondary details-btn" onclick="openDetailsModal(this)">Details</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- NON-CAFFEINE -->
+            <div id="non-caff" class="menu-category">
+                <div class="category-header">
+                    <h2>Lattes (Non-Caffeinated)</h2>
+                    <p>Flavorful and indulgent</p>
+                </div>
+                <div class="menu-grid">
+                    <div class="menu-item-card">
+                        <div class="menu-item-img">
+                            <img src="https://images.pexels.com/photos/33166521/pexels-photo-33166521.jpeg" alt="Flavored Lattes">
+                        </div>
+                        <div class="menu-item-content">
+                            <h3>Flavored Lattes</h3>
+                            <p>Strawberry, Strawberry × Matcha, Ube, Chocolate, Banana, or Choco Banana. Hot or Iced</p>
+                            <div class="menu-item-actions">
+                                <a href="https://online.skytab.com/s/breadnbrew" target="_blank" class="btn-menu-primary">Order Now</a>
+                                <button class="btn-menu-secondary details-btn" onclick="openDetailsModal(this)">Details</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="menu-item-card">
+                        <div class="menu-item-img">
+                            <img src="https://images.pexels.com/photos/33166521/pexels-photo-33166521.jpeg" alt="Customization">
+                        </div>
+                        <div class="menu-item-content">
+                            <h3>Customization</h3>
+                            <p>Alternative milk available: Oat, Soy, Almond, Skim, 2% • Add flavor syrups available</p>
+                            <div class="menu-item-actions">
+                                <a href="https://online.skytab.com/s/breadnbrew" target="_blank" class="btn-menu-primary">Order Now</a>
+                                <button class="btn-menu-secondary details-btn" onclick="openDetailsModal(this)">Details</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Details Modal -->
+    <div id="detailsModal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeDetailsModal()">&times;</span>
+            <h2 id="modalTitle">Item Details</h2>
+            <p id="modalDescription"></p>
+            <div id="modalAllergens" style="margin-top: 1.5rem; padding-top: 1.5rem; border-top: 2px solid #e0e0e0;">
+                <h4>Allergens & Info:</h4>
+                <p id="allergensList" style="margin-top: 0.5rem;"></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Order CTA -->
+    <section class="order-cta-section">
+        <div class="container">
+            <h2>Ready to Order?</h2>
+            <p>Place your order now and pick up at our café</p>
+            <a href="https://online.skytab.com/s/breadnbrew" target="_blank" class="btn btn-primary btn-large">Order Now</a>
         </div>
     </section>
 
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <div class="footer-content">
+            <div class="footer-grid">
                 <div class="footer-section">
-                    <h3>Bread N' Br☕︎w</h3>
-                    <p>Where every bite and sip tells a story of craft and community.</p>
+                    <h3>Bread N' Brew</h3>
+                    <p>Where every bite and sip celebrates the art of craft and community.</p>
                 </div>
                 <div class="footer-section">
                     <h4>Quick Links</h4>
                     <ul>
-                        <li><a href="/about">About Us</a></li>
-                        <li><a href="/menu">Menu</a></li>
-                        <li><a href="/catering">Catering</a></li>
-                        <li><a href="/contact">Contact</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="menu.html">Menu</a></li>
+                        <li><a href="contact.html">Contact</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
-                    <h4>Visit Us</h4>
-                    <p>
-                        <a href="https://maps.google.com/?q=Bread+N'+Brew,+Springfield+Avenue,+Berkeley+Heights,+NJ" 
-                           target="_blank" 
-                           class="address-link"
-                           onclick="openGoogleMaps()">
-                            Bread N' Brew<br>
-                            Springfield Avenue<br>
-                            Berkeley Heights, NJ
-                        </a><br>
-                        <a href="tel:+19089330123">(908) 933-0123</a>
-                    </p>
-                    <a href="https://maps.google.com/?q=Bread+N'+Brew,+Springfield+Avenue,+Berkeley+Heights,+NJ" 
-                       target="_blank" 
-                       class="directions-link"
-                       onclick="openGoogleMaps()">Get Directions via Google Maps</a>
+                    <h4>Hours</h4>
+                    <p>Monday - Friday: 8:00 AM - 5:00 PM<br>
+                    Saturday: 8:00 AM - 5:00 PM<br>
+                    Sunday: 8:00 AM - 4:00 PM</p>
                 </div>
                 <div class="footer-section">
-                    <h4>Hours</h4>
-                    <p>Mon-Fri: 7:00 AM - 5:00 PM<br>
-                    Sat-Sun: 7:00 AM - 5:00 PM</p>
+                    <h4>Contact</h4>
+                    <p>512 Springfield Ave<br>
+                    Berkeley Heights, NJ 07922<br>
+                    <a href="tel:+19089330123">(908) 933-0123</a><br>
+                    <a href="mailto:breadnbrew512@gmail.com">breadnbrew512@gmail.com</a></p>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 Bread N' Br☕︎w. All rights reserved.</p>
+                <p>&copy; 2025 Bread N' Brew. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
     <script src="script.js"></script>
-    <script>
-        // Menu page specific JavaScript
-        function hideLoading() {
-            const loadingIndicator = document.getElementById('loadingIndicator');
-            if (loadingIndicator) {
-                loadingIndicator.style.display = 'none';
-            }
-        }
-
-        function showFallback() {
-            const loadingIndicator = document.getElementById('loadingIndicator');
-            const menuFallback = document.getElementById('menuFallback');
-            const menuIframe = document.getElementById('menuIframe');
-            
-            if (loadingIndicator) loadingIndicator.style.display = 'none';
-            if (menuIframe) menuIframe.style.display = 'none';
-            if (menuFallback) menuFallback.style.display = 'block';
-        }
-
-        function openGoogleMaps() {
-            // Track analytics if needed
-            console.log('Opening Google Maps for Bread N\' Brew location');
-        }
-
-        // Hide loading indicator after 10 seconds if iframe doesn't load
-        setTimeout(() => {
-            const loadingIndicator = document.getElementById('loadingIndicator');
-            if (loadingIndicator && loadingIndicator.style.display !== 'none') {
-                hideLoading();
-            }
-        }, 10000);
-
-        // Responsive iframe height adjustment
-        function adjustIframeHeight() {
-            const iframe = document.getElementById('menuIframe');
-            const wrapper = document.querySelector('.menu-iframe-wrapper');
-            
-            if (iframe && wrapper) {
-                // Ensure iframe maintains responsive height
-                iframe.style.height = '100%';
-            }
-        }
-
-        // Adjust on load and resize
-        window.addEventListener('load', adjustIframeHeight);
-        window.addEventListener('resize', adjustIframeHeight);
-
-        // Handle iframe communication for better UX
-        window.addEventListener('message', function(event) {
-            // Handle messages from the embedded menu if needed
-            if (event.origin === 'https://online.skytab.com') {
-                console.log('Message from SkyTab menu:', event.data);
-            }
-        });
-    </script>
 </body>
 </html>

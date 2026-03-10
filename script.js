@@ -45,20 +45,24 @@ function initScrollEffects() {
             }
         }
 
-        // 2. Banner Parallax (Hero Background)
-        if (hero) {
+        // 2. Banner Parallax (Hero Background) - Only on Desktop
+        if (hero && window.innerWidth > 768) {
             const translateY = scrollY * 0.3;
             hero.style.backgroundPosition = `center ${translateY}px`;
+        } else if (hero) {
+            hero.style.backgroundPosition = 'center';
         }
 
-        // 3. Image Parallax (Hero/About Images)
-        heroImages.forEach(img => {
-            const rate = scrollY * 0.05;
-            const innerImg = img.querySelector('img');
-            if (innerImg) {
-                innerImg.style.transform = `translateY(${-rate}px)`;
-            }
-        });
+        // 3. Image Parallax (Hero/About Images) - Only on Desktop
+        if (window.innerWidth > 768) {
+            heroImages.forEach(img => {
+                const rate = scrollY * 0.05;
+                const innerImg = img.querySelector('img');
+                if (innerImg) {
+                    innerImg.style.transform = `translate3d(0, ${-rate}px, 0)`;
+                }
+            });
+        }
 
         lastScrollY = scrollY;
         ticking = false;

@@ -823,6 +823,13 @@ a:hover {
     display: none;
 }
 
+.nav-order-btn {
+    padding: 0.7rem 2.5rem !important;
+    color: white !important;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
 /* Sparkle Effect for specific buttons */
 .btn-sparkle:hover::after {
     content: '';
